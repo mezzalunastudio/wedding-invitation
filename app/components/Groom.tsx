@@ -25,6 +25,7 @@ export default function Groom() {
             width={150}
             height={150}
             className="w-full h-full"
+            // fill
           />
         </div>
       </div>
