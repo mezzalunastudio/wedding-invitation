@@ -28,17 +28,17 @@ export default function Quote() {
       {/* Quote Text */}
       <div className="px-6 max-w-3xl relative z-10 animate-slide-right">
         {/* add animation from right to left */}
-        <p className="text-lg italic font-medium leading-relaxed text-white">
+        <span className="text-lg italic font-medium leading-relaxed text-white">
           Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
           pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
           dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
           kasih dan sayang.
-        </p>
+        </span>
       </div>
 
       <div className="relative z-10 animate-slide-right">
         {/* add animation from right to left */}
-        <p className="text-lg font-semibold text-white">QS. Ar-Rum : 21</p>
+        <span className="text-lg font-semibold text-white">QS. Ar-Rum : 21</span>
       </div>
     </section>
   );

@@ -37,13 +37,12 @@ export default function Bridge() {
         {/* Content */}
         <div className="relative z-10 space-y-4 text-white">
           <h2 className="text-2xl font-bold">Syifa</h2>
-          <p className="text-lg font-medium">
-            Ngakan Made Nabil, S.T., MBA
-          </p>
+          <p className="text-lg font-medium">Ngakan Made Nabil, S.T., MBA</p>
 
           <div className="text-sm mt-4 space-y-1">
             <p>
-              <span className="font-semibold">Anak ke:</span> Putra pertama dari
+              <span className="font-semibold">Anak ke:</span>
+              Putra pertama dari
             </p>
             <p>
               <span className="font-semibold">Orang tua:</span> Bpk. Nabil & Ibu
