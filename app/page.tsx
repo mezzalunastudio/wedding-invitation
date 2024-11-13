@@ -1,14 +1,14 @@
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Groom from "./components/Groom";
-import Bridge from "./components/Bridge";
-import Quote from "./components/Quote";
-import Event from "./components/Event";
-import Rsvp from "./components/Rsvp";
-import Gallery from "./components/Gallery";
-import Story from "./components/Story";
-import Gift from "./components/Gift";
-import Footer from "./components/Footer";
+import Header from "./syifannabil/components/Header";
+import Hero from "./syifannabil/components/Hero";
+import Groom from "./syifannabil/components/Groom";
+import Bridge from "./syifannabil/components/Bridge";
+import Quote from "./syifannabil/components/Quote";
+import Event from "./syifannabil/components/Event";
+import Rsvp from "./syifannabil/components/Rsvp";
+import Gallery from "./syifannabil/components/Gallery";
+import Story from "./syifannabil/components/Story";
+import Gift from "./syifannabil/components/Gift";
+import Footer from "./syifannabil/components/Footer";
 
 export default function Home() {
   return (

@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../asset/IMG_1859.jpg";
-import img2 from "../asset/IMG_1878.jpg";
-import img3 from "../asset/IMG_1885.jpg";
-import img4 from "../asset/IMG_1890.jpg";
+import img1 from "../../asset/IMG_1859.jpg";
+import img2 from "../../asset/IMG_1878.jpg";
+import img3 from "../../asset/IMG_1885.jpg";
+import img4 from "../../asset/IMG_1890.jpg";
 // import Pict from "../asset/IMG_1892.jpg";
 
 export default function Gallery() {
@@ -17,7 +17,7 @@ export default function Gallery() {
       {/* Gallery Wrapper */}
       <div className="max-w-6xl mx-auto space-y-12 px-4">
         {/* Image Gallery Section in a Single Row */}
-        <div className="flex space-x-4 overflow-x-auto pb-4">
+        <div className="flex space-x-4 pb-4 overflow-x-auto">
           {/* Images in a Row */}
           <div className="relative w-64 h-[400px] flex-shrink-0">
             <Image

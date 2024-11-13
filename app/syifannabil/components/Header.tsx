@@ -1,7 +1,12 @@
+"use client"
 import React from "react";
-import Pict from "../asset/IMG_1885.jpg";
+import Pict from "../../asset/IMG_1885.jpg";
+import { useSearchParams } from "next/navigation";
 
 export default function Header() {
+  const searchParams = useSearchParams();
+  const guestName = searchParams.get("nama") || "Nama Tamu Undangan";
+
   return (
     <section
       className="h-screen flex flex-col items-center justify-between text-center bg-slate-950"
@@ -20,7 +25,8 @@ export default function Header() {
       <div className="mb-28 z-10">
         <p>Kepada Yth.</p>
         <p>Bapak/Ibu/Saudara/i : </p>
-        <p>Tamu Undangan Di Tempat</p>
+        <p className="font-bold text-2xl my-3">{guestName}</p>
+        <p>Di Tempat</p>
       </div>
     </section>
   );

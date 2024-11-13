@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import ProfilPic from "../asset/IMG_1878.jpg";
+import ProfilPic from "../../asset/IMG_1878.jpg";
 
 export default function Rsvp() {
   // Countdown Timer Logic
@@ -94,7 +94,7 @@ export default function Rsvp() {
         {/* Button for Live Wedding */}
         <div className="mt-4">
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6"
+            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
             onClick={() =>
               (window.location.href = "https://live-wedding-link.com")
             } // Replace with actual live wedding link
@@ -127,7 +127,7 @@ export default function Rsvp() {
         {/* Google Maps Button */}
         <div>
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6"
+            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
             onClick={() =>
               window.open("https://maps.app.goo.gl/SxXsB57nspUobZdJ7", "_blank")
             } // Replace with the actual map link
@@ -139,7 +139,7 @@ export default function Rsvp() {
         {/* Save the Date Button */}
         <div>
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6"
+            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
             onClick={() => alert("Saved!")} // Here, you can implement actual Save the Date functionality
           >
             Save the Date

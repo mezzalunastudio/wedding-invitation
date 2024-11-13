@@ -1,6 +1,6 @@
 import React from "react";
-import bgPict from "../asset/IMG_1885.jpg";
-import frontPic from "../asset/Foto-Profile-paling-depan.jpg";
+import bgPict from "../../asset/IMG_1885.jpg";
+import frontPic from "../../asset/Foto-Profile-paling-depan.jpg";
 import Image from "next/image";
 
 export default function Footer() {

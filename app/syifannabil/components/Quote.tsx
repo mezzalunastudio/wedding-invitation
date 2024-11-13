@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ProfilePic from "../asset/IMG_1859.jpg";
+import ProfilePic from "../../asset/IMG_1859.jpg";
 
 export default function Quote() {
   return (
@@ -21,7 +21,7 @@ export default function Quote() {
           alt="Picture of the author"
           width={300}
           height={300}
-          className="rounded-[300px_0px_200px_0px] box-border"
+          className="rounded-[100px_20px_100px_20px] box-border"
         />
       </div>
 

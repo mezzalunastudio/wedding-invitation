@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import bgPict from "../asset/IMG_1890.jpg";
+import bgPict from "../../asset/IMG_1890.jpg";
 
 export default function Gift() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +33,7 @@ export default function Gift() {
       {/* Button to toggle the visibility of the gift info */}
       <div className="text-center z-10">
         <button
-          className="text-white border border-transparent border-white transition py-3 px-6"
+          className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
           onClick={() => setIsVisible(!isVisible)}
         >
           {isVisible ? "Hide Gift Info" : "Show Gift Info"}
@@ -57,7 +57,7 @@ export default function Gift() {
             {/* Right side: Button */}
             <div>
               <button
-                className="text-white border border-transparent border-white transition py-3 px-6"
+                className="text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80"
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening
@@ -76,7 +76,7 @@ export default function Gift() {
             {/* Right side: Button */}
             <div>
               <button
-                className="text-white border border-transparent border-white transition py-3 px-6"
+                className="text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80"
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening
