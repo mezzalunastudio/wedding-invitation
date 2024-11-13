@@ -10,10 +10,15 @@ import Gallery from "./components/Gallery";
 import Story from "./components/Story";
 import Gift from "./components/Gift";
 import Footer from "./components/Footer";
+import Popup from "./components/PopUp";
 import { useEffect, useState } from "react";
 
 export default function Syifannabil() {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [showButton, setShowButton] = useState(false);
+
+  const openPopup = () => setIsPopupVisible(true);
+  const closePopup = () => setIsPopupVisible(false);
 
   // Show button only when scrolled down a certain amount
   useEffect(() => {
@@ -50,12 +55,23 @@ export default function Syifannabil() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 p-3 bg-slate-600 text-white rounded-full shadow-md hover:bg-slate-700 transition"
+          className="fixed bottom-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
           aria-label="Scroll to top"
         >
           ↑
         </button>
       )}
+
+      <button
+        onClick={openPopup}
+        className="fixed top-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
+        aria-label="Use this template"
+      >
+        Use This Template
+      </button>
+
+      {/* Popup */}
+      {isPopupVisible && <Popup onClose={closePopup} />}
     </>
   );
 }

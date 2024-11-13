@@ -29,7 +29,7 @@ export default function Footer() {
             alt="Profile Picture"
             width={350}
             height={200}
-            className="mx-auto rounded-sm"
+            className="mx-auto rounded-lg"
           />
         </div>
 
