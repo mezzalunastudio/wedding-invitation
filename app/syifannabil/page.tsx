@@ -1,3 +1,4 @@
+"use client";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Groom from "./components/Groom";
@@ -9,10 +10,31 @@ import Gallery from "./components/Gallery";
 import Story from "./components/Story";
 import Gift from "./components/Gift";
 import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 
 export default function Syifannabil() {
+  const [showButton, setShowButton] = useState(false);
+
+  // Show button only when scrolled down a certain amount
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <div className="">
+    <>
       <Header />
       <Hero />
       <Groom />
@@ -24,6 +46,16 @@ export default function Syifannabil() {
       <Story />
       <Gift />
       <Footer />
-    </div>
+
+      {showButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 p-3 bg-slate-600 text-white rounded-full shadow-md hover:bg-slate-700 transition"
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
+      )}
+    </>
   );
 }

@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Template Info */}
-        <span className="text-sm opacity-75">Template by Mezzaluna</span>
+        <span className="text-sm font-extrabold">Template by Mezzaluna</span>
       </div>
     </footer>
   );
