@@ -8,6 +8,7 @@ export default function Story() {
       style={{
         backgroundImage: `url(${Pict.src})`,
       }}
+      id="story"
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 

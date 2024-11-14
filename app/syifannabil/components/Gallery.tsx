@@ -8,7 +8,7 @@ import img4 from "../../asset/IMG_1890.jpg";
 
 export default function Gallery() {
   return (
-    <section className="py-12 bg-stone-500">
+    <section className="py-12 bg-stone-500" id="gallery">
       {/* Heading */}
       <h1 className="text-4xl font-bold text-center text-white mb-8">
         Gallery
@@ -17,9 +17,9 @@ export default function Gallery() {
       {/* Gallery Wrapper */}
       <div className="max-w-6xl mx-auto space-y-12 px-4">
         {/* Image Gallery Section in a Single Row */}
-        <div className="flex space-x-4 pb-4 overflow-x-auto">
+        <div className="flex space-x-4 pb-4 overflow-x-auto snap-x">
           {/* Images in a Row */}
-          <div className="relative w-64 h-[400px] flex-shrink-0">
+          <div className="relative w-64 h-[400px] flex-shrink-0 snap-center">
             <Image
               src={img1}
               alt="Gallery Image 1"
@@ -28,7 +28,7 @@ export default function Gallery() {
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="relative w-64 h-[400px] flex-shrink-0">
+          <div className="relative w-64 h-[400px] flex-shrink-0 snap-center">
             <Image
               src={img2}
               alt="Gallery Image 2"
@@ -37,7 +37,7 @@ export default function Gallery() {
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="relative w-64 h-[400px] flex-shrink-0">
+          <div className="relative w-64 h-[400px] flex-shrink-0 snap-center">
             <Image
               src={img3}
               alt="Gallery Image 3"
@@ -46,7 +46,7 @@ export default function Gallery() {
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="relative w-64 h-[400px] flex-shrink-0">
+          <div className="relative w-64 h-[400px] flex-shrink-0 snap-center">
             <Image
               src={img4}
               alt="Gallery Image 4"

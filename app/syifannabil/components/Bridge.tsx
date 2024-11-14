@@ -11,6 +11,7 @@ export default function Bridge() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      id="bridge"
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 

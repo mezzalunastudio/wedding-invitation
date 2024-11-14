@@ -11,6 +11,7 @@ export default function Quote() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      id="quote"
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
 

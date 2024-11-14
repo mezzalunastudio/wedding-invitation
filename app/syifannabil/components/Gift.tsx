@@ -19,6 +19,7 @@ export default function Gift() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      id="gift"
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 

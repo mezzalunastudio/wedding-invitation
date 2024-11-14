@@ -10,6 +10,7 @@ export default function Hero() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      id="hero"
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 

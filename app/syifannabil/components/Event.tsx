@@ -27,7 +27,10 @@ export default function Event() {
   };
 
   return (
-    <section className="p-6 space-y-4 bg-gray-500 opacity-70 min-h-screen flex flex-col justify-center">
+    <section
+      className="p-6 space-y-4 bg-gray-500 opacity-70 min-h-screen flex flex-col justify-center"
+      id="event"
+    >
       {/* Greeting Form */}
       <div className="text-center space-y-6">
         <h1 className="text-3xl font-bold">Reservation and Greeting</h1>
@@ -53,6 +56,7 @@ export default function Event() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Message to the happy couple"
             className="border p-2 rounded w-full"
+            rows={5}
           />
         </div>
 
