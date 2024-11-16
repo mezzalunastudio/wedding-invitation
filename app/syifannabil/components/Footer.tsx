@@ -2,8 +2,11 @@ import React from "react";
 import bgPict from "../../asset/IMG_1885.jpg";
 import frontPic from "../../asset/Foto-Profile-paling-depan.jpg";
 import Image from "next/image";
+import { useInView } from "@/app/hooks/useInView";
 
 export default function Footer() {
+  const { ref, isInView } = useInView();
+
   return (
     <footer
       className="flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
@@ -15,7 +18,12 @@ export default function Footer() {
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
       {/* Second Layer: Content Container */}
-      <div className="relative z-10 w-3/4 mx-auto py-12 text-center text-white">
+      <div
+        className={`relative z-10 w-3/4 mx-auto py-12 text-center text-white ${
+          isInView ? "opacity-100 animate-fadeIn" : "opacity-0"
+        }`}
+        ref={ref}
+      >
         {/* Third Layer: Text and Image */}
         <p className="text-lg mb-4">
           Kedatangan dan restu kalian hadiah terindah bagi kami

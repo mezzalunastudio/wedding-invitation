@@ -1,7 +1,10 @@
 import React from "react";
 import Pict from "../../asset/IMG_1859.jpg";
+import { useInView } from "../../hooks/useInView";
 
 export default function Hero() {
+  const { ref: rightToLeft, isInView: isRightToLeftInView } = useInView();
+
   return (
     <section
       className="h-screen flex flex-row justify-center items-center center bg-slate-900 relative"
@@ -20,7 +23,13 @@ export default function Hero() {
       </div>
 
       {/* Second div: horizontal alignment */}
-      <div className="z-10 border-y-2 border-l-2 border-white -ml-20">
+      <div
+        className={`z-10 border-y-2 border-l-2 border-white -ml-20 transition-transform duration-700 ${
+          isRightToLeftInView ? "animate-slideLeft" : "opacity-0"
+        }`}
+        ref={rightToLeft}
+      >
+        {/* implement useInView "right to left here" */}
         <h1 className="text-6xl font-bold m-4">Syifa</h1>
         <h1 className="text-4xl font-medium my-3 text-center">&</h1>
         <h1 className="text-6xl font-bold m-4">Nabil</h1>

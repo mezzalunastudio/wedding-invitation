@@ -1,8 +1,12 @@
 import React from "react";
 import Pict from "../../asset/Profile-Bride.jpg";
 import Image from "next/legacy/image";
+import { useInView } from "../../hooks/useInView";
 
 export default function Bridge() {
+  const { ref: imageRef, isInView: isImageInView } = useInView();
+  const { ref: detailsRef, isInView: isDetailsInView } = useInView();
+
   return (
     <section
       className="h-screen flex flex-col justify-center items-center space-y-6 bg-slate-950 relative"
@@ -17,7 +21,13 @@ export default function Bridge() {
 
       {/* Centered Circular Image */}
       <div className="flex items-center justify-center z-10">
-        <div className="w-40 h-40 rounded-full overflow-hidden">
+        <div
+          ref={imageRef}
+          className={`w-40 h-40 rounded-full overflow-hidden transition-transform duration-700 ${
+            isImageInView ? "animate-slideRight" : "opacity-0"
+          }`}
+        >
+          {" "}
           <Image
             src={Pict}
             alt="Profile Groom"
@@ -25,16 +35,20 @@ export default function Bridge() {
             objectFit="cover"
             width={200}
             height={200}
-            // className="w-full h-full"
           />
         </div>
       </div>
 
       {/* Border Section with Groom Details */}
-      <div className="relative w-2/3 sm:w-1/3 p-6 text-center">
+      <div
+        ref={detailsRef}
+        className={`relative w-2/3 sm:w-1/3 p-6 text-center transition-transform duration-700 ${
+          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+        }`}
+      >
+        {" "}
         {/* Background with opacity */}
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
-
         {/* Content */}
         <div className="relative z-10 space-y-4 text-white">
           <h2 className="text-2xl font-bold">Syifa</h2>

@@ -1,8 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import ProfilePic from "../../asset/IMG_1859.jpg";
+import { useInView } from "../../hooks/useInView";
 
 export default function Quote() {
+  const { ref: imageRef, isInView: isImageInView } = useInView();
+  const { ref: detailsRef, isInView: isDetailsInView } = useInView();
   return (
     <section
       className="h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
@@ -15,7 +18,10 @@ export default function Quote() {
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      <div className="z-10 animate-slide-left">
+      <div
+        className={`z-10 ${isImageInView ? "animate-slideRight" : "opacity-0"}`}
+        ref={imageRef}
+      >
         {/* add animation from left to right */}
         <Image
           src={ProfilePic}
@@ -27,7 +33,12 @@ export default function Quote() {
       </div>
 
       {/* Quote Text */}
-      <div className="px-6 max-w-3xl relative z-10 animate-slide-right">
+      <div
+        className={`px-6 max-w-3xl relative z-10 animate-slide-right ${
+          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+        }`}
+        ref={detailsRef}
+      >
         {/* add animation from right to left */}
         <span className="text-lg italic font-medium leading-relaxed text-white">
           Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
@@ -37,9 +48,16 @@ export default function Quote() {
         </span>
       </div>
 
-      <div className="relative z-10 animate-slide-right">
+      <div
+        className={`relative z-10 ${
+          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+        }`}
+        ref={detailsRef}
+      >
         {/* add animation from right to left */}
-        <span className="text-lg font-semibold text-white">QS. Ar-Rum : 21</span>
+        <span className="text-lg font-semibold text-white">
+          QS. Ar-Rum : 21
+        </span>
       </div>
     </section>
   );

@@ -36,10 +36,10 @@ const InvitePage: React.FC = () => {
         <p className="text-slate-600 text-lg mb-10">{message}</p>
 
         <div className="my-10">
-          <div className="text-2xl font-semibold text-slate-800">
+          <p className="text-2xl font-semibold text-slate-800">
             {weddingDate}
-          </div>
-          <div className="text-lg text-slate-600 mt-2">{venue}</div>
+          </p>
+          <p className="text-lg text-slate-600 mt-2">{venue}</p>
         </div>
 
         <a

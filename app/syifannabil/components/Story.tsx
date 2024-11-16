@@ -1,7 +1,10 @@
 import React from "react";
 import Pict from "../../asset/IMG_1885.jpg";
+import { useInView } from "../../hooks/useInView";
 
 export default function Story() {
+  const { ref: headingRef, isInView: isheadingRef } = useInView();
+  const { ref: storyRef, isInView: isstoryRef } = useInView();
   return (
     <section
       className="flex flex-col justify-center items-center text-center bg-slate-950 relative bg-cover bg-center"
@@ -13,14 +16,24 @@ export default function Story() {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       {/* Title */}
-      <div className="text-center my-12 z-10">
+      <div
+        className={`text-center my-12 z-10  ${
+          isheadingRef ? "animate-slideLeft" : "opacity-0"
+        }`}
+        ref={headingRef}
+      >
         <h1 className="text-4xl font-semibold capitalize text-white">
           Our Love Story
         </h1>
       </div>
 
       {/* Timeline Wrapper */}
-      <div className="relative max-w-6xl mx-auto px-4 space-y-20 z-10 my-12">
+      <div
+        className={`relative max-w-6xl mx-auto px-4 space-y-20 z-10 my-12  ${
+          isstoryRef ? "animate-slideRight" : "opacity-0"
+        }`}
+        ref={storyRef}
+      >
         {/* Central Line with Heart Icons */}
         <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-white">
           <div className="flex flex-col items-center space-y-12"></div>

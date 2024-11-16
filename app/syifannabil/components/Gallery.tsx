@@ -4,9 +4,13 @@ import img1 from "../../asset/IMG_1859.jpg";
 import img2 from "../../asset/IMG_1878.jpg";
 import img3 from "../../asset/IMG_1885.jpg";
 import img4 from "../../asset/IMG_1890.jpg";
+import { useInView } from "../../hooks/useInView";
 // import Pict from "../asset/IMG_1892.jpg";
 
 export default function Gallery() {
+  const { ref: imageRef, isInView: isImageInView } = useInView();
+  const { ref: videoRef, isInView: isvideoRef } = useInView();
+
   return (
     <section className="py-12 bg-stone-500" id="gallery">
       {/* Heading */}
@@ -17,7 +21,12 @@ export default function Gallery() {
       {/* Gallery Wrapper */}
       <div className="max-w-6xl mx-auto space-y-12 px-4">
         {/* Image Gallery Section in a Single Row */}
-        <div className="flex space-x-4 pb-4 overflow-x-auto snap-x">
+        <div
+          className={`flex space-x-4 pb-4 overflow-x-auto snap-x ${
+            isImageInView ? "animate-slideRight" : "opacity-0"
+          }`}
+          ref={imageRef}
+        >
           {/* Images in a Row */}
           <div className="relative w-64 h-[400px] flex-shrink-0 snap-center">
             <Image
@@ -58,7 +67,12 @@ export default function Gallery() {
         </div>
 
         {/* Video Section */}
-        <div className="flex justify-center">
+        <div
+          className={`flex justify-center ${
+            isvideoRef ? "animate-slideLeft" : "opacity-0"
+          }`}
+          ref={videoRef}
+        >
           <iframe
             width="100%"
             height="400"
