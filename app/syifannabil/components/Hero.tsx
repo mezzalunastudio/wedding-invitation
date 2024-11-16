@@ -18,7 +18,12 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       {/* First div: vertical alignment */}
-      <div className="flex flex-col items-center -rotate-90 border-white border-t-2 z-10 -ml-20">
+      <div
+        className={`flex flex-col items-center -rotate-90 border-white border-t-2 z-10 -ml-20 ${
+          isRightToLeftInView ? "animate-fadeIn" : "opacity-0"
+        }`}
+        ref={rightToLeft}
+      >
         <h1 className="text-2xl font-semibold uppercase m-4">The Wedding Of</h1>
       </div>
 
