@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import bgPict from "../../asset/IMG_1890.jpg";
+import { useInView } from "../../hooks/useInView";
 
 export default function Gift() {
   const [isVisible, setIsVisible] = useState(false);
+  const { ref: isHeadingRef, isInView: setIsHeadingRef } = useInView();
 
-  // Function to copy text to clipboard
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
     alert("Number copied to clipboard!");
@@ -23,7 +24,12 @@ export default function Gift() {
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-      <div className="text-center mb-8 z-10">
+      <div
+        className={`text-center mb-8 z-10 ${
+          setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
+        }`}
+        ref={isHeadingRef}
+      >
         <h1 className="text-3xl font-semibold">WEDDING LOVE GIFT</h1>
         <span className="text-base">
           Apabila tamu ingin mengirimkan hadiah kepada kedua mempelai dapat
@@ -32,7 +38,12 @@ export default function Gift() {
       </div>
 
       {/* Button to toggle the visibility of the gift info */}
-      <div className="text-center z-10">
+      <div
+        className={`text-center z-10 ${
+          setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
+        }`}
+        ref={isHeadingRef}
+      >
         <button
           className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
           onClick={() => setIsVisible(!isVisible)}
@@ -41,21 +52,20 @@ export default function Gift() {
         </button>
       </div>
 
-      {/* Display gift information if isVisible is true */}
       {isVisible && (
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 w-3/4 mx-auto z-10 mb-12">
-          {" "}
-          {/* Added mb-12 for bottom margin */}
-          {/* Left box */}
+        <div
+          className={`mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 w-3/4 mx-auto z-10 mb-12 ${
+            setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
+          }`}
+          ref={isHeadingRef}
+        >
           <div className="p-6 border border-gray-300 rounded-lg shadow-lg flex items-center justify-between">
-            {/* Left side: Content */}
             <div>
               <p className="text-lg font-semibold">Nomor Rekening</p>
               <p className="text-xl font-bold">123-456-7890</p>
               <p className="text-base">Bank: Bank ABC</p>
             </div>
 
-            {/* Right side: Button */}
             <div>
               <button
                 className="text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80"
@@ -65,9 +75,8 @@ export default function Gift() {
               </button>
             </div>
           </div>
-          {/* Right box */}
+
           <div className="p-6 border border-gray-300 rounded-lg shadow-lg flex items-center justify-between">
-            {/* Left side: Content */}
             <div>
               <p className="text-lg font-semibold">Nomor Rekening</p>
               <p className="text-xl font-bold">123-456-7890</p>

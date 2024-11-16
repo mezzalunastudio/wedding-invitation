@@ -2,8 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ProfilPic from "../../asset/IMG_1878.jpg";
+// import { useInView } from "../../hooks/useInView";
 
 export default function Rsvp() {
+  // const { ref: isGreetingRef, isInView: setisGreetingRef } = useInView();
+
   // Countdown Timer Logic
   const calculateTimeLeft = () => {
     const eventDate = new Date("2024-12-31T08:00:00Z").getTime();
@@ -40,7 +43,7 @@ export default function Rsvp() {
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-      <div className="text-center z-10">
+      <div className={`text-center z-10 `}>
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
         <Image
           src={ProfilPic}
@@ -51,7 +54,7 @@ export default function Rsvp() {
         />
 
         {/* Countdown Timer */}
-        <div className="mt-6 text-xl font-semibold">
+        <div className={`mt-6 text-xl font-semibold `}>
           <p className="text-lg">Wedding Countdown</p>
           <div className="flex justify-center space-x-4 mt-4">
             <div className="flex flex-col items-center">
@@ -77,7 +80,7 @@ export default function Rsvp() {
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
       </div>
 
-      <div className="text-center mt-8 z-20">
+      <div className={`text-center mt-8 z-20`}>
         {/* Wedding Information */}
         <div className="mb-8 space-y-2">
           <p className="text-2xl font-semibold">Akad</p>
@@ -106,7 +109,7 @@ export default function Rsvp() {
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
       </div>
 
-      <div className="text-center mt-8 z-20">
+      <div className={`text-center mt-8 z-20 `}>
         {/* Wedding Information */}
         <div className="mb-8 space-y-2">
           <p className="text-2xl font-semibold">Resepsi</p>

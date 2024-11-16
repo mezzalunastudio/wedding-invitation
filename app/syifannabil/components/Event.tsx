@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { useInView } from "../../hooks/useInView";
+
 interface INewGreeting {
   name: string;
   message: string;
@@ -12,6 +14,7 @@ export default function Event() {
   const [message, setMessage] = useState<string>("");
   const [attendance, setAttendance] = useState<string>("present");
   const [greetings, setGreetings] = useState<INewGreeting[]>([]);
+  const { ref: isGreetingRef, isInView: setisGreetingRef } = useInView();
 
   const handleGreetingSubmit = (): void => {
     const newGreeting: INewGreeting = {
@@ -28,18 +31,28 @@ export default function Event() {
 
   return (
     <section
-      className="p-6 space-y-4 bg-gray-500 opacity-70 min-h-screen flex flex-col justify-center"
+      className={`p-6 space-y-4 bg-gray-500 opacity-70 min-h-screen flex flex-col justify-center`}
       id="event"
     >
       {/* Greeting Form */}
-      <div className="text-center space-y-6">
+      <div
+        className={`text-center space-y-6 ${
+          setisGreetingRef ? "animate-fadeIn" : "opacity-0"
+        }`}
+        ref={isGreetingRef}
+      >
         <h1 className="text-3xl font-bold">Reservation and Greeting</h1>
         <p className="text-white">
           Send your warm wishes and confirm attendance
         </p>
       </div>
 
-      <div className="space-y-4 sm:w-1/2 w-3/4 mx-auto text-black">
+      <div
+        className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-black ${
+          setisGreetingRef ? "animate-fadeIn" : "opacity-0"
+        }`}
+        ref={isGreetingRef}
+      >
         <div>
           <input
             type="text"
