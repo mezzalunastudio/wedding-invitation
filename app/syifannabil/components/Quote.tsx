@@ -1,14 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import ProfilePic from "../../asset/IMG_1859.jpg";
-import { useInView } from "../../hooks/useInView";
+import ProfilePic from "@/app/asset/IMG_1859.jpg";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Quote() {
   const { ref: imageRef, isInView: isImageInView } = useInView();
   const { ref: detailsRef, isInView: isDetailsInView } = useInView();
   return (
     <section
-      className="h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
+      className="min-h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
       style={{
         backgroundImage: `url(${ProfilePic.src})`,
         backgroundSize: "cover",
@@ -39,8 +40,9 @@ export default function Quote() {
         }`}
         ref={detailsRef}
       >
-        {/* add animation from right to left */}
-        <span className="text-lg italic font-medium leading-relaxed text-white">
+        <span
+          className={`text-sm md:text-lg italic md:leading-relaxed text-white ${fonts.montserrat}`}
+        >
           Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
           pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
           dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
@@ -49,13 +51,13 @@ export default function Quote() {
       </div>
 
       <div
-        className={`relative z-10 ${
+        className={` z-10 pb-5 md:pb-10 ${
           isDetailsInView ? "animate-slideLeft" : "opacity-0"
         }`}
         ref={detailsRef}
       >
         {/* add animation from right to left */}
-        <span className="text-lg font-semibold text-white">
+        <span className={`text-lg font-semibold text-white ${fonts.bodoni}`}>
           QS. Ar-Rum : 21
         </span>
       </div>

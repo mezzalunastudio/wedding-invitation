@@ -17,7 +17,7 @@ export default function Syifannabil() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-  const openPopup = () => setIsPopupVisible(true);
+  // const openPopup = () => setIsPopupVisible(true);
   const closePopup = () => setIsPopupVisible(false);
 
   // Show button only when scrolled down a certain amount
@@ -39,7 +39,7 @@ export default function Syifannabil() {
   };
 
   return (
-    <>
+    <div>
       <Header />
       <Hero />
       <Groom />
@@ -62,16 +62,16 @@ export default function Syifannabil() {
         </button>
       )}
 
-      <button
+      {/* <button
         onClick={openPopup}
         className="fixed top-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
         aria-label="Use this template"
       >
         Use This Template
-      </button>
+      </button> */}
 
       {/* Popup */}
       {isPopupVisible && <Popup onClose={closePopup} />}
-    </>
+    </div>
   );
 }

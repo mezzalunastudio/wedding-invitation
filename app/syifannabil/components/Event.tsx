@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { useInView } from "../../hooks/useInView";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 interface INewGreeting {
   name: string;
@@ -41,25 +42,27 @@ export default function Event() {
         }`}
         ref={isGreetingRef}
       >
-        <h1 className="text-3xl font-bold">Reservation and Greeting</h1>
-        <p className="text-white">
+        <h1 className={`text-3xl font-bold ${fonts.bodoni}`}>
+          Reservation and Greeting
+        </h1>
+        <p className={`text-white capitalize ${fonts.montserrat}`}>
           Send your warm wishes and confirm attendance
         </p>
       </div>
 
       <div
-        className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-black ${
+        className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-black ${fonts.montserrat} ${
           setisGreetingRef ? "animate-fadeIn" : "opacity-0"
         }`}
         ref={isGreetingRef}
       >
-        <div>
+        <div className="">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Your Name"
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full focus:outline-none"
           />
         </div>
 
@@ -68,7 +71,7 @@ export default function Event() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Message to the happy couple"
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full focus:outline-none"
             rows={5}
           />
         </div>
@@ -78,7 +81,7 @@ export default function Event() {
           <select
             value={attendance}
             onChange={(e) => setAttendance(e.target.value)}
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full focus:outline-none"
           >
             <option value="present">Present</option>
             <option value="not present">Not Present</option>
@@ -89,7 +92,7 @@ export default function Event() {
         <div className="text-center">
           <button
             onClick={handleGreetingSubmit}
-            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
+            className="text-white font-semibold border border-transparent border-white transition py-3 px-6 hover:opacity-80"
           >
             Send Greeting
           </button>
@@ -98,7 +101,7 @@ export default function Event() {
 
       {/* Display Greetings */}
       <div className="space-y-4 mt-8 sm:w-1/2 w-3/4 mx-auto text-black">
-        <h2 className="text-2xl font-semibold text-center">Greetings</h2>
+        <h2 className={`text-2xl text-center ${fonts.bodoni}`}>Greetings</h2>
         {greetings.length > 0 ? (
           greetings.map((greeting, index) => (
             <div

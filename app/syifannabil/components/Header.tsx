@@ -3,6 +3,7 @@ import React from "react";
 import Pict from "../../asset/IMG_1885.jpg";
 import { useSearchParams } from "next/navigation";
 import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Header() {
   const searchParams = useSearchParams();
@@ -29,8 +30,10 @@ export default function Header() {
         }`}
         ref={slideLeftRef}
       >
-        <h1 className=" text-xl ">The wedding of</h1>
-        <h1 className="text-6xl font-bold mt-6">Syifa & Nabila</h1>
+        <h1 className={`text-xl ${fonts.montserrat}`}>The wedding of</h1>
+        <h1 className={`text-6xl font-bold mt-6 ${fonts.bodoni} `}>
+          Syifa & Nabila
+        </h1>
       </div>
       <div
         ref={slideRightRef}
@@ -38,11 +41,10 @@ export default function Header() {
           isSlideRightInView ? "animate-slideRight" : "opacity-0"
         }`}
       >
-        {/* add useinview slide right */}
         <p>Kepada Yth.</p>
         <p>Bapak/Ibu/Saudara/i : </p>
-        <p className="font-bold text-2xl my-3">{guestName}</p>
-        <p>Di Tempat</p>
+        <p className={`font-bold text-2xl my-3 ${fonts.cinzel}`}>{guestName}</p>
+        <p className={`${fonts.montserrat}`}>Di Tempat</p>
       </div>
     </section>
   );

@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ProfilPic from "../../asset/IMG_1878.jpg";
-// import { useInView } from "../../hooks/useInView";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Rsvp() {
-  // const { ref: isGreetingRef, isInView: setisGreetingRef } = useInView();
+  const { ref, isInView } = useInView();
 
-  // Countdown Timer Logic
   const calculateTimeLeft = () => {
     const eventDate = new Date("2024-12-31T08:00:00Z").getTime();
     const currentDate = new Date().getTime();
@@ -43,20 +43,31 @@ export default function Rsvp() {
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-      <div className={`text-center z-10 `}>
-        <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
+      <div
+        className={`text-center z-10 ${
+          isInView ? "animate-slideUp opacity-100" : "opacity-0"
+        }`}
+        ref={ref}
+      >
+        {" "}
+        <hr className={`border-gray-300 w-1/2 mx-auto animate-fadeIn   `} />
         <Image
           src={ProfilPic}
           alt="Wedding"
           width={400}
           height={300}
-          className="mx-auto rounded-lg"
+          className={`mx-auto`}
         />
-
         {/* Countdown Timer */}
-        <div className={`mt-6 text-xl font-semibold `}>
-          <p className="text-lg">Wedding Countdown</p>
-          <div className="flex justify-center space-x-4 mt-4">
+        <div
+          className={`mt-6 text-xl font-semibold ${
+            isInView ? "animate-slideUp opacity-100" : "opacity-0"
+          }`}
+        >
+          <p className={`text-lg ${fonts.bodoni}`}>Wedding Countdown</p>
+          <div
+            className={`flex justify-center space-x-4 mt-4 ${fonts.montserrat}`}
+          >
             <div className="flex flex-col items-center">
               <span className="text-2xl">{timeLeft.days}</span>
               <span className="text-sm">Days</span>
@@ -75,18 +86,21 @@ export default function Rsvp() {
             </div>
           </div>
         </div>
-
-        {/* Horizontal Line */}
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
       </div>
 
-      <div className={`text-center mt-8 z-20`}>
-        {/* Wedding Information */}
+      <div
+        className={`text-center z-20 ${
+          isInView ? "animate-slideUp opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="mb-8 space-y-2">
-          <p className="text-2xl font-semibold">Akad</p>
-          <p className="text-base">Minggu, 01 April 2024</p>
-          <p className="text-base">Jam: 08.00 WIB</p>
-          <p className="text-base">
+          <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Akad</p>
+          <p className={`text-base ${fonts.montserrat}`}>
+            Minggu, 01 April 2024
+          </p>
+          <p className={`text-base ${fonts.montserrat}`}>Jam: 08.00 WIB</p>
+          <p className={`text-base ${fonts.montserrat}`}>
             <span className="font-bold"> Kediaman Mempelai Wanita</span>
             <br />
             Perumahan Graha Prima Blok IE RT
@@ -94,14 +108,13 @@ export default function Rsvp() {
             01 RW 10, Desa Satria Jaya, Tambun Utara - Bekasi
           </p>
         </div>
-
         {/* Button for Live Wedding */}
         <div className="mt-4">
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
+            className={`text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80 ${fonts.montserrat}`}
             onClick={() =>
               (window.location.href = "https://live-wedding-link.com")
-            } // Replace with actual live wedding link
+            }
           >
             Watch the Live Wedding
           </button>
@@ -109,13 +122,14 @@ export default function Rsvp() {
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
       </div>
 
-      <div className={`text-center mt-8 z-20 `}>
-        {/* Wedding Information */}
-        <div className="mb-8 space-y-2">
-          <p className="text-2xl font-semibold">Resepsi</p>
-          <p className="text-base">Minggu, 01 April 2024</p>
-          <p className="text-base">Jam: 08.00 WIB</p>
-          <p className="text-base">
+      <div className={`text-center z-20`}>
+        <div className="space-y-2">
+          <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Resepsi</p>
+          <p className={`text-base ${fonts.montserrat}`}>
+            Minggu, 01 April 2024
+          </p>
+          <p className={`text-base ${fonts.montserrat}`}>Jam: 08.00 WIB</p>
+          <p className={`text-base ${fonts.montserrat}`}>
             <span className="font-bold"> Kediaman Mempelai Wanita</span>
             <br />
             Perumahan Graha Prima Blok IE RT
@@ -127,14 +141,17 @@ export default function Rsvp() {
         <hr className="my-8 border-gray-300 w-1/2 mx-auto" />
       </div>
 
-      <div className="flex justify-center mt-12 space-x-6 z-20 pb-10">
+      <div
+        className={`flex justify-center mt-12 space-x-6 z-20 px-3 pb-6 md:p-6`}
+        ref={ref}
+      >
         {/* Google Maps Button */}
         <div>
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
+            className={`text-white text-sm md:text-lg border border-transparent border-white transition py-2 px-3 md:py-2 md:px-6 hover:opacity-80 ${fonts.montserrat}`}
             onClick={() =>
               window.open("https://maps.app.goo.gl/SxXsB57nspUobZdJ7", "_blank")
-            } // Replace with the actual map link
+            }
           >
             Google Maps Location
           </button>
@@ -143,8 +160,8 @@ export default function Rsvp() {
         {/* Save the Date Button */}
         <div>
           <button
-            className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
-            onClick={() => alert("Saved!")} // Here, you can implement actual Save the Date functionality
+            className={`text-white text-sm md:text-lg border border-transparent border-white transition py-2 px-3 md:py-2 md:px-6 hover:opacity-80 ${fonts.montserrat}`}
+            onClick={() => alert("Saved!")}
           >
             Save the Date
           </button>

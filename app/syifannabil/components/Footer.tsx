@@ -1,8 +1,9 @@
 import React from "react";
-import bgPict from "../../asset/IMG_1885.jpg";
-import frontPic from "../../asset/Foto-Profile-paling-depan.jpg";
+import bgPict from "@/app/asset/IMG_1885.jpg";
+import frontPic from "@/app/asset/Foto-Profile-paling-depan.jpg";
 import Image from "next/image";
 import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Footer() {
   const { ref, isInView } = useInView();
@@ -25,10 +26,12 @@ export default function Footer() {
         ref={ref}
       >
         {/* Third Layer: Text and Image */}
-        <p className="text-lg mb-4">
+        <p className={`text-sm mb-4 capitalize ${fonts.montserrat}`}>
           Kedatangan dan restu kalian hadiah terindah bagi kami
         </p>
-        <h1 className="text-3xl font-semibold mb-6">Syifa & Nabil</h1>
+        <h1 className={`text-3xl font-semibold mb-6 ${fonts.bodoni}`}>
+          Syifa & Nabil
+        </h1>
 
         {/* Front Image */}
         <div className="mb-6">
@@ -37,12 +40,14 @@ export default function Footer() {
             alt="Profile Picture"
             width={350}
             height={200}
-            className="mx-auto rounded-lg"
+            className="mx-auto"
           />
         </div>
 
         {/* Footer Template Info */}
-        <span className="text-sm font-extrabold">Template by Mezzaluna</span>
+        <span className={`text-base ${fonts.montserrat}`}>
+          Template by Mezzaluna
+        </span>
       </div>
     </footer>
   );

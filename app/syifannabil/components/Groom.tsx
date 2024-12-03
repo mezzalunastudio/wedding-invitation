@@ -1,7 +1,8 @@
 import React from "react";
-import Pict from "../../asset/Profile-Groom.jpg";
+import Pict from "@/app/asset/Profile-Groom.jpg";
 import Image from "next/legacy/image";
-import { useInView } from "../../hooks/useInView";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Groom() {
   const { ref: imageRef, isInView: isImageInView } = useInView();
@@ -49,12 +50,12 @@ export default function Groom() {
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
         {/* Content */}
         <div className="relative z-10 space-y-4 text-white">
-          <h2 className="text-2xl font-bold">Nabil</h2>
-          <p className="text-lg font-medium">
+          <h2 className={`text-2xl font-bold ${fonts.bodoni}`}>Nabil</h2>
+          <p className={`text-lg font-medium ${fonts.montserrat}`}>
             Ngakan Made Nabil Akmal, S.T., MBA
           </p>
 
-          <div className="text-sm mt-4 space-y-1">
+          <div className={`text-sm mt-4 space-y-1 ${fonts.montserrat}`}>
             <p>
               <span className="font-semibold">Anak ke:</span> Putra pertama dari
             </p>
@@ -64,7 +65,9 @@ export default function Groom() {
             </p>
           </div>
 
-          <button className="mt-4 px-4 py-2 border rounded-md text-sm">
+          <button
+            className={`mt-4 px-4 py-2 border rounded-md text-sm ${fonts.bodoni}`}
+          >
             <a href="https://instagram.com" target="_blank">
               @nabil
             </a>

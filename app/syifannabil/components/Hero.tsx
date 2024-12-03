@@ -1,6 +1,7 @@
 import React from "react";
-import Pict from "../../asset/IMG_1859.jpg";
-import { useInView } from "../../hooks/useInView";
+import Pict from "@/app/asset/IMG_1859.jpg";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Hero() {
   const { ref: rightToLeft, isInView: isRightToLeftInView } = useInView();
@@ -24,20 +25,22 @@ export default function Hero() {
         }`}
         ref={rightToLeft}
       >
-        <h1 className="text-2xl font-semibold uppercase m-4">The Wedding Of</h1>
+        <h1 className={`text-2xl uppercase m-4 ${fonts.montserrat}`}>
+          The Wedding Of
+        </h1>
       </div>
 
       {/* Second div: horizontal alignment */}
       <div
         className={`z-10 border-y-2 border-l-2 border-white -ml-20 transition-transform duration-700 ${
-          isRightToLeftInView ? "animate-slideLeft" : "opacity-0"
-        }`}
+          fonts.bodoni
+        } ${isRightToLeftInView ? "animate-slideLeft" : "opacity-0"}`}
         ref={rightToLeft}
       >
         {/* implement useInView "right to left here" */}
-        <h1 className="text-6xl font-bold m-4">Syifa</h1>
-        <h1 className="text-4xl font-medium my-3 text-center">&</h1>
-        <h1 className="text-6xl font-bold m-4">Nabil</h1>
+        <h1 className={`text-6xl m-4`}>Syifa</h1>
+        <h1 className="text-4xl my-3 text-center">&</h1>
+        <h1 className="text-6xl m-4">Nabil</h1>
       </div>
     </section>
   );

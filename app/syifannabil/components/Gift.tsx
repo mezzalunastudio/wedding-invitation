@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import bgPict from "../../asset/IMG_1890.jpg";
-import { useInView } from "../../hooks/useInView";
+import bgPict from "@/app/asset/IMG_1890.jpg";
+import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "@/app/syifannabil/src/fonts";
 
 export default function Gift() {
   const [isVisible, setIsVisible] = useState(false);
@@ -25,19 +26,20 @@ export default function Gift() {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div
-        className={`text-center mb-8 z-10 ${
+        className={`text-center mb-8 p-4 z-10 md:w-1/2 w-4/5 ${
           setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
         }`}
         ref={isHeadingRef}
       >
-        <h1 className="text-3xl font-semibold">WEDDING LOVE GIFT</h1>
-        <span className="text-base">
+        <h1 className={`text-3xl capitalize mb-4 ${fonts.bodoni}`}>
+          Wedding Love Gift
+        </h1>
+        <span className={`text-sm md:text-lg ${fonts.montserrat}`}>
           Apabila tamu ingin mengirimkan hadiah kepada kedua mempelai dapat
           melalui rekening atau virtual account dibawah ini
         </span>
       </div>
 
-      {/* Button to toggle the visibility of the gift info */}
       <div
         className={`text-center z-10 ${
           setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
@@ -45,7 +47,7 @@ export default function Gift() {
         ref={isHeadingRef}
       >
         <button
-          className="text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80"
+          className={`text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80 ${fonts.montserrat}`}
           onClick={() => setIsVisible(!isVisible)}
         >
           {isVisible ? "Hide Gift Info" : "Show Gift Info"}
@@ -54,39 +56,41 @@ export default function Gift() {
 
       {isVisible && (
         <div
-          className={`mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8 w-3/4 mx-auto z-10 mb-12 ${
+          className={`grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 w-4/5 md:w-4/6 mx-auto z-10 ${
             setIsHeadingRef ? "animate-fadeIn" : "opacity-0"
           }`}
           ref={isHeadingRef}
         >
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg flex items-center justify-between">
-            <div>
-              <p className="text-lg font-semibold">Nomor Rekening</p>
-              <p className="text-xl font-bold">123-456-7890</p>
-              <p className="text-base">Bank: Bank ABC</p>
+          <div
+            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between`}
+          >
+            <div className={`${fonts.montserrat}`}>
+              <p className="text-lg">Nomor Rekening</p>
+              <p className="text-xl">123-456-7890</p>
+              <p className={`text-base ${fonts.bodoni}`}>Bank ABC</p>
             </div>
 
             <div>
               <button
-                className="text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80"
+                className={`text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80 text-base md:text-lg ${fonts.montserrat}`}
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening
               </button>
             </div>
           </div>
-
-          <div className="p-6 border border-gray-300 rounded-lg shadow-lg flex items-center justify-between">
-            <div>
-              <p className="text-lg font-semibold">Nomor Rekening</p>
-              <p className="text-xl font-bold">123-456-7890</p>
-              <p className="text-base">Bank: Bank ABC</p>
+          <div
+            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between`}
+          >
+            <div className={`${fonts.montserrat}`}>
+              <p className="text-lg">Nomor Rekening</p>
+              <p className="text-xl">123-456-7890</p>
+              <p className={`text-base ${fonts.bodoni}`}>Bank ABC</p>
             </div>
 
-            {/* Right side: Button */}
             <div>
               <button
-                className="text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80"
+                className={`text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80 text-base md:text-lg ${fonts.montserrat}`}
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening
