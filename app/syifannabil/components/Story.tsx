@@ -18,7 +18,7 @@ export default function Story() {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       <div
-        className={`text-center my-12 z-10 ${
+        className={`text-center mt-12 z-10 ${
           isheadingRef ? "animate-slideLeft" : "opacity-0"
         }`}
         ref={headingRef}
@@ -30,18 +30,18 @@ export default function Story() {
 
       {/* Timeline Wrapper */}
       <div
-        className={`relative max-w-6xl mx-auto px-4 space-y-20 z-10 my-12 ${
+        className={`relative max-w-6xl mx-auto px-4 space-y-4 z-10 my-12 ${
           isstoryRef ? "animate-slideRight" : "opacity-0"
         }`}
         ref={storyRef}
       >
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-white"></div>
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-white"></div>
 
         {/* Timeline Events */}
         <div className="space-y-10">
           {/* First Meet */}
           <div className="flex items-center justify-start relative">
-            <div className="w-1/2 pr-8">
+            <div className="w-3/4 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>First Meet</h3>
                 <p
@@ -57,7 +57,7 @@ export default function Story() {
 
           {/* Proposal */}
           <div className="flex items-center justify-end relative">
-            <div className="w-1/2 pl-8">
+            <div className="w-3/4 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>The Proposal</h3>
                 <p
@@ -73,7 +73,7 @@ export default function Story() {
 
           {/* Marriage */}
           <div className="flex items-center justify-start relative">
-            <div className="w-1/2 pr-8">
+            <div className="w-3/4 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>Marriage</h3>
                 <p

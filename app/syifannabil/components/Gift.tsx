@@ -60,7 +60,7 @@ export default function Gift() {
           ref={isHeadingRef}
         >
           <div
-            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between`}
+            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between rounded-md`}
           >
             <div className={`${fonts.montserrat}`}>
               <p className="text-lg">Nomor Rekening</p>
@@ -78,7 +78,7 @@ export default function Gift() {
             </div>
           </div>
           <div
-            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between`}
+            className={`md:p-6 p-4 border border-gray-300 flex items-center text-left justify-between rounded-md`}
           >
             <div className={`${fonts.montserrat}`}>
               <p className="text-lg">Nomor Rekening</p>

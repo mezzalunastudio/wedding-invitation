@@ -45,7 +45,6 @@ export default function Groom() {
           isDetailsInView ? "animate-slideLeft" : "opacity-0"
         }`}
       >
-        {" "}
         {/* animate letftright */}
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
         {/* Content */}
