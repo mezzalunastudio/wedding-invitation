@@ -22,7 +22,7 @@ body {
 
 @layer base {
   .btn {
-    @apply text-white border border-transparent border-white transition md:py-3 py-2 md:px-4 px-2 hover:opacity-80 text-center;
+    @apply text-white border border-transparent border-white transition md:py-3 py-2 md:px-4 px-2 hover:opacity-80 text-center rounded-md;
   }
   .custom-hr {
     @apply border-gray-300 w-1/2 mx-auto;

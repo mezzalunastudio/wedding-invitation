@@ -65,9 +65,7 @@ export default function Groom() {
             </p>
           </div>
 
-          <button
-            className={`mt-4 px-4 py-2 border rounded-md text-sm ${fonts.bodoni}`}
-          >
+          <button className={`btn ${fonts.bodoni}`}>
             <a href="https://instagram.com" target="_blank">
               @nabil
             </a>

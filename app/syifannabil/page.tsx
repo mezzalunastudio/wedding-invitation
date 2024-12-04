@@ -55,7 +55,7 @@ export default function Syifannabil() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className=" fixed bottom-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
+          className="fixed bottom-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
           aria-label="Scroll to top"
         >
           ↑
