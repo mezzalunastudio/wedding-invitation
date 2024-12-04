@@ -25,9 +25,9 @@ export default function Hero() {
         }`}
         ref={rightToLeft}
       >
-        <h1 className={`text-2xl uppercase m-4 ${fonts.montserrat}`}>
+        <h4 className={`uppercase md:mx-5 my-2 mx-4 ${fonts.montserrat}`}>
           The Wedding Of
-        </h1>
+        </h4>
       </div>
 
       {/* Second div: horizontal alignment */}

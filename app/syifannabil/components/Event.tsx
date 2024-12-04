@@ -42,18 +42,16 @@ export default function Event() {
         }`}
         ref={isGreetingRef}
       >
-        <h1 className={`text-3xl font-bold ${fonts.bodoni}`}>
-          Reservation and Greeting
-        </h1>
-        <p className={`text-white capitalize ${fonts.montserrat}`}>
+        <h1 className={`${fonts.bodoni}`}>Reservation and Greeting</h1>
+        <p className={`capitalize ${fonts.montserrat}`}>
           Send your warm wishes and confirm attendance
         </p>
       </div>
 
       <div
-        className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-black ${fonts.montserrat} ${
-          setisGreetingRef ? "animate-fadeIn" : "opacity-0"
-        }`}
+        className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-black ${
+          fonts.montserrat
+        } ${setisGreetingRef ? "animate-fadeIn" : "opacity-0"}`}
         ref={isGreetingRef}
       >
         <div className="">
@@ -90,10 +88,7 @@ export default function Event() {
         </div>
 
         <div className="text-center">
-          <button
-            onClick={handleGreetingSubmit}
-            className="text-white font-semibold border border-transparent border-white transition py-3 px-6 hover:opacity-80"
-          >
+          <button onClick={handleGreetingSubmit} className="btn">
             Send Greeting
           </button>
         </div>
@@ -101,25 +96,23 @@ export default function Event() {
 
       {/* Display Greetings */}
       <div className="space-y-4 mt-8 sm:w-1/2 w-3/4 mx-auto text-black">
-        <h2 className={`text-2xl text-center ${fonts.bodoni}`}>Greetings</h2>
+        <h2 className={`text-center ${fonts.bodoni}`}>Greetings</h2>
         {greetings.length > 0 ? (
           greetings.map((greeting, index) => (
             <div
               key={index}
-              className="p-4 border rounded-md bg-gray-100 space-y-2"
+              className={`p-4 border rounded-md bg-gray-100 space-y-2 capitalize ${fonts.montserrat}`}
             >
               <p>
-                <span className="font-semibold">Name:</span> {greeting.name}
+                <span>Name:</span> {greeting.name}
               </p>
               <p>
-                <span className="font-semibold">Message:</span>{" "}
-                {greeting.message}
+                <span>Message:</span> {greeting.message}
               </p>
               <p>
-                <span className="font-semibold">Attendance:</span>{" "}
-                {greeting.attendance}
+                <span>Attendance:</span> {greeting.attendance}
               </p>
-              <p className="text-sm text-black">Sent at: {greeting.time}</p>
+              <p>Sent at: {greeting.time}</p>
             </div>
           ))
         ) : (

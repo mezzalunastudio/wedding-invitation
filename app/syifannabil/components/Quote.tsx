@@ -40,14 +40,12 @@ export default function Quote() {
         }`}
         ref={detailsRef}
       >
-        <span
-          className={`text-sm md:text-lg italic md:leading-relaxed text-white ${fonts.montserrat}`}
-        >
+        <p className={`italic text-white ${fonts.montserrat}`}>
           Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
           pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
           dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
           kasih dan sayang.
-        </span>
+        </p>
       </div>
 
       <div
@@ -57,9 +55,9 @@ export default function Quote() {
         ref={detailsRef}
       >
         {/* add animation from right to left */}
-        <span className={`text-lg font-semibold text-white ${fonts.bodoni}`}>
+        <h4 className={`${fonts.bodoni}`}>
           QS. Ar-Rum : 21
-        </span>
+        </h4>
       </div>
     </section>
   );

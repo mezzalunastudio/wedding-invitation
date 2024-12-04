@@ -31,13 +31,11 @@ export default function Gift() {
         }`}
         ref={isHeadingRef}
       >
-        <h1 className={`text-3xl capitalize mb-4 ${fonts.bodoni}`}>
-          Wedding Love Gift
-        </h1>
-        <span className={`text-sm md:text-lg ${fonts.montserrat}`}>
+        <h1 className={`capitalize mb-4 ${fonts.bodoni}`}>Wedding Love Gift</h1>
+        <p className={`text-sm md:text-lg ${fonts.montserrat}`}>
           Apabila tamu ingin mengirimkan hadiah kepada kedua mempelai dapat
           melalui rekening atau virtual account dibawah ini
-        </span>
+        </p>
       </div>
 
       <div
@@ -47,7 +45,7 @@ export default function Gift() {
         ref={isHeadingRef}
       >
         <button
-          className={`text-white border border-transparent border-white transition py-3 px-6 hover:opacity-80 ${fonts.montserrat}`}
+          className={`btn ${fonts.montserrat}`}
           onClick={() => setIsVisible(!isVisible)}
         >
           {isVisible ? "Hide Gift Info" : "Show Gift Info"}
@@ -72,7 +70,7 @@ export default function Gift() {
 
             <div>
               <button
-                className={`text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80 text-base md:text-lg ${fonts.montserrat}`}
+                className={`btn ${fonts.montserrat}`}
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening
@@ -90,7 +88,7 @@ export default function Gift() {
 
             <div>
               <button
-                className={`text-white border border-transparent border-white transition py-3 px-4 hover:opacity-80 text-base md:text-lg ${fonts.montserrat}`}
+                className={`btn ${fonts.montserrat}`}
                 onClick={() => copyToClipboard("123-456-7890")}
               >
                 Copy Rekening

@@ -47,7 +47,6 @@ export default function Bridge() {
           isDetailsInView ? "animate-slideLeft" : "opacity-0"
         }`}
       >
-        {" "}
         {/* Background with opacity */}
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
         {/* Content */}

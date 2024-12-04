@@ -26,7 +26,7 @@ export default function Gallery() {
   return (
     <section className="py-12 bg-stone-500" id="gallery">
       <h1
-        className={`text-4xl font-bold text-center text-white mb-8 ${fonts.bodoni}`}
+        className={`text-center text-white md:mb-8 mb-4 ${fonts.bodoni}`}
       >
         Gallery
       </h1>

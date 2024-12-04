@@ -22,9 +22,7 @@ export default function Story() {
         }`}
         ref={headingRef}
       >
-        <h1
-          className={`text-4xl font-semibold capitalize text-white ${fonts.bodoni}`}
-        >
+        <h1 className={`capitalize text-white ${fonts.bodoni}`}>
           Our Love Story
         </h1>
       </div>
@@ -45,11 +43,11 @@ export default function Story() {
           {/* First Meet */}
           <div className="flex items-center justify-start relative">
             <div className="w-1/2 pr-8">
-              <div className="p-2 border border-gray-300 text-white space-y-2">
-                <h2 className={`text-3xl font-bold text-white ${fonts.bodoni}`}>
-                  First Meet
-                </h2>
-                <p className={`text-gray-200 text-sm ${fonts.montserrat}`}>
+              <div className="p-2 border border-gray-300 text-white md:space-y-4 space-y-2">
+                <h3 className={`text-white ${fonts.bodoni}`}>First Meet</h3>
+                <p
+                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                >
                   We met for the first time at a mutual friend’s gathering,
                   where we immediately connected over our shared interests and
                   love for adventure.
@@ -61,11 +59,11 @@ export default function Story() {
           {/* Proposal */}
           <div className="flex items-center justify-end relative">
             <div className="w-1/2 pl-8">
-              <div className="p-2 border border-gray-300 text-white space-y-2">
-                <h2 className={`text-xl font-bold text-white ${fonts.bodoni}`}>
-                  The Proposal
-                </h2>
-                <p className={`text-gray-200 text-sm mt-4 ${fonts.montserrat}`}>
+              <div className="p-2 border border-gray-300 text-white md:space-y-4 space-y-2">
+                <h3 className={`text-white ${fonts.bodoni}`}>The Proposal</h3>
+                <p
+                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                >
                   On a beautiful evening, under a sky full of stars, the
                   proposal took place with heartfelt words, promising a lifetime
                   of love and happiness together.
@@ -77,11 +75,11 @@ export default function Story() {
           {/* Marriage */}
           <div className="flex items-center justify-start relative">
             <div className="w-1/2 pr-8">
-              <div className="p-2 border border-gray-300 text-white space-y-2">
-                <h2 className={`text-3xl font-bold text-white ${fonts.bodoni}`}>
-                  Marriage
-                </h2>{" "}
-                <p className={`text-gray-200 text-sm ${fonts.montserrat}`}>
+              <div className="p-2 border border-gray-300 text-white md:space-y-4 space-y-2">
+                <h3 className={`text-white ${fonts.bodoni}`}>Marriage</h3>
+                <p
+                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                >
                   Our journey led to a beautiful wedding day, surrounded by
                   family and friends, celebrating the beginning of a new chapter
                   in our love story.

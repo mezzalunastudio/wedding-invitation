@@ -30,10 +30,8 @@ export default function Header() {
         }`}
         ref={slideLeftRef}
       >
-        <h1 className={`text-xl ${fonts.montserrat}`}>The wedding of</h1>
-        <h1 className={`text-6xl font-bold mt-6 ${fonts.bodoni} `}>
-          Syifa & Nabila
-        </h1>
+        <p className={`text-xl ${fonts.montserrat}`}>The wedding of</p>
+        <h1 className={`mt-2 md:mt-4 ${fonts.bodoni} `}>Syifa & Nabila</h1>
       </div>
       <div
         ref={slideRightRef}
@@ -43,7 +41,7 @@ export default function Header() {
       >
         <p>Kepada Yth.</p>
         <p>Bapak/Ibu/Saudara/i : </p>
-        <p className={`font-bold text-2xl my-3 ${fonts.cinzel}`}>{guestName}</p>
+        <h3 className={`my-2 md:my-4 ${fonts.cinzel}`}>{guestName}</h3>
         <p className={`${fonts.montserrat}`}>Di Tempat</p>
       </div>
     </section>

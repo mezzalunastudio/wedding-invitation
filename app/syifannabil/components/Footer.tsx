@@ -29,9 +29,7 @@ export default function Footer() {
         <p className={`text-sm mb-4 capitalize ${fonts.montserrat}`}>
           Kedatangan dan restu kalian hadiah terindah bagi kami
         </p>
-        <h1 className={`text-3xl font-semibold mb-6 ${fonts.bodoni}`}>
-          Syifa & Nabil
-        </h1>
+        <h1 className={`mb-6 ${fonts.bodoni}`}>Syifa & Nabil</h1>
 
         {/* Front Image */}
         <div className="mb-6">
@@ -41,6 +39,9 @@ export default function Footer() {
             width={350}
             height={200}
             className="mx-auto"
+            style={{
+              objectFit: "cover",
+            }}
           />
         </div>
 
