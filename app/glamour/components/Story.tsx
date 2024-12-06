@@ -1,7 +1,7 @@
 import React from "react";
 import Pict from "@/app/asset/IMG_1885.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Story() {
   const { ref: headingRef, isInView: isheadingRef } = useInView();
@@ -41,7 +41,7 @@ export default function Story() {
         <div className="space-y-10">
           {/* First Meet */}
           <div className="flex items-center justify-start relative">
-            <div className="w-3/4 md:w-1/2 px-8">
+            <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>First Meet</h3>
                 <p
@@ -57,7 +57,7 @@ export default function Story() {
 
           {/* Proposal */}
           <div className="flex items-center justify-end relative">
-            <div className="w-3/4 md:w-1/2 px-8">
+            <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>The Proposal</h3>
                 <p
@@ -73,7 +73,7 @@ export default function Story() {
 
           {/* Marriage */}
           <div className="flex items-center justify-start relative">
-            <div className="w-3/4 md:w-1/2 px-8">
+            <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
                 <h3 className={`text-white ${fonts.bodoni}`}>Marriage</h3>
                 <p

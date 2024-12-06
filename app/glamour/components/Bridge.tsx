@@ -1,7 +1,7 @@
 import React from "react";
 import Pict from "@/app/asset/Profile-Bride.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 import Image from "next/legacy/image";
 
 export default function Bridge() {

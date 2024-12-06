@@ -5,7 +5,7 @@ import img2 from "@/app/asset/IMG_1878.jpg";
 import img3 from "@/app/asset/IMG_1885.jpg";
 import img4 from "@/app/asset/IMG_1890.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 interface imageData {
   src: string | StaticImageData;
@@ -46,6 +46,7 @@ export default function Gallery() {
               <Image
                 src={image.src}
                 alt={image.alt}
+                className="rounded-md"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -70,7 +71,7 @@ export default function Gallery() {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="w-full sm:w-3/4 lg:w-1/2 shadow-lg"
+            className="w-full sm:w-3/4 lg:w-1/2 rounded-md"
           ></iframe>
         </div>
       </div>

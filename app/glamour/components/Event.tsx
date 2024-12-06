@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 interface INewGreeting {
   name: string;

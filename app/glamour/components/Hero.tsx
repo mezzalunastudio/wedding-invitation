@@ -1,7 +1,7 @@
 import React from "react";
 import Pict from "@/app/asset/IMG_1859.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Hero() {
   const { ref: rightToLeft, isInView: isRightToLeftInView } = useInView();

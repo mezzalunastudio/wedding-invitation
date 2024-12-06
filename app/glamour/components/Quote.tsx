@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import ProfilePic from "@/app/asset/IMG_1859.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Quote() {
   const { ref: imageRef, isInView: isImageInView } = useInView();

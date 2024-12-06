@@ -3,7 +3,7 @@ import React from "react";
 import Pict from "../../asset/IMG_1885.jpg";
 import { useSearchParams } from "next/navigation";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Header() {
   const searchParams = useSearchParams();

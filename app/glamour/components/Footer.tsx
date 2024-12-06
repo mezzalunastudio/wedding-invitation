@@ -3,7 +3,7 @@ import bgPict from "@/app/asset/IMG_1885.jpg";
 import frontPic from "@/app/asset/Foto-Profile-paling-depan.jpg";
 import Image from "next/image";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Footer() {
   const { ref, isInView } = useInView();
@@ -38,7 +38,7 @@ export default function Footer() {
             alt="Profile Picture"
             width={350}
             height={200}
-            className="mx-auto"
+            className="mx-auto rounded-md"
             style={{
               objectFit: "cover",
             }}

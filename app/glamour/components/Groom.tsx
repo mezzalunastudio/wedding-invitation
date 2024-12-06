@@ -2,7 +2,7 @@ import React from "react";
 import Pict from "@/app/asset/Profile-Groom.jpg";
 import Image from "next/legacy/image";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Groom() {
   const { ref: imageRef, isInView: isImageInView } = useInView();

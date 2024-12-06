@@ -17,10 +17,8 @@ export default function Syifannabil() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
-  // const openPopup = () => setIsPopupVisible(true);
   const closePopup = () => setIsPopupVisible(false);
 
-  // Show button only when scrolled down a certain amount
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {

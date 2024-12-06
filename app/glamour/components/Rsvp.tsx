@@ -2,12 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ProfilPic from "../../asset/IMG_1878.jpg";
-// import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Rsvp() {
-  // const { ref, isInView } = useInView();
-
   const calculateTimeLeft = () => {
     const eventDate = new Date("2024-12-31T08:00:00Z").getTime();
     const currentDate = new Date().getTime();
@@ -17,7 +14,6 @@ export default function Rsvp() {
       days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
       hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((timeLeft % (1000 * 60)) / 1000),
     };
   };
 
@@ -43,10 +39,7 @@ export default function Rsvp() {
     >
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-      <div
-        className={`text-center z-10`}
-        // ref={ref}
-      >
+      <div className={`text-center z-10`}>
         <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
         <Image
           src={ProfilPic}
@@ -72,10 +65,6 @@ export default function Rsvp() {
             <div className="flex flex-col items-center">
               <span className="text-2xl">{timeLeft.minutes}</span>
               <span className="text-sm">Minutes</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.seconds}</span>
-              <span className="text-sm">Seconds</span>
             </div>
           </div>
         </div>
@@ -132,10 +121,7 @@ export default function Rsvp() {
       </div>
       <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
 
-      <div
-        className={`flex justify-center space-x-6 z-20 px-3 pb-4 md:pb-6`}
-        // ref={ref}
-      >
+      <div className={`flex justify-center space-x-6 z-20 px-3 pb-4 md:pb-6`}>
         {/* Google Maps Button */}
         <div>
           <button

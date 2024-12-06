@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import bgPict from "@/app/asset/IMG_1890.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/syifannabil/src/fonts";
+import { fonts } from "@/app/glamour/src/fonts";
 
 export default function Gift() {
   const [isVisible, setIsVisible] = useState(false);

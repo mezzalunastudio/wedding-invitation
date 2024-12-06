@@ -8,14 +8,14 @@ export default function Home() {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl">
         <div className="p-6 rounded-lg shadow-md text-center border-2 border-white hover:bg-opacity-80">
-          <h1 className="text-xl font-semibold mb-4">Modern Template</h1>
+          <h1 className="text-xl font-semibold mb-4">Glamour</h1>
           <button className="text-slate-500 font-medium">
             <a
-              href="http://localhost:3000/syifannabil"
+              href="http://localhost:3000/glamour"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Syifa & Nabil
+              Glamour
             </a>
           </button>
         </div>
