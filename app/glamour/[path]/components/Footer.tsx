@@ -3,9 +3,10 @@ import bgPict from "@/app/asset/IMG_1885.jpg";
 import frontPic from "@/app/asset/Foto-Profile-paling-depan.jpg";
 import Image from "next/image";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/glamour/src/fonts";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
 
-export default function Footer() {
+export default function Footer({ data }: { data: wedding }) {
   const { ref, isInView } = useInView();
 
   return (
@@ -29,7 +30,9 @@ export default function Footer() {
         <p className={`text-sm mb-4 capitalize ${fonts.montserrat}`}>
           Kedatangan dan restu kalian hadiah terindah bagi kami
         </p>
-        <h1 className={`mb-6 ${fonts.bodoni}`}>Syifa & Nabil</h1>
+        <h1 className={`mb-6 ${fonts.bodoni}`}>
+          {data.groom.shortName} & {data.bride.shortName}
+        </h1>
 
         {/* Front Image */}
         <div className="mb-6">

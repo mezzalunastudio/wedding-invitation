@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 import ProfilePic from "@/app/asset/IMG_1859.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/glamour/src/fonts";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
 
-export default function Quote() {
-  const { ref: imageRef, isInView: isImageInView } = useInView();
-  const { ref: detailsRef, isInView: isDetailsInView } = useInView();
+export default function Quote({ data }: { data: wedding }) {
+  const { ref, isInView } = useInView();
+
   return (
     <section
       className="min-h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
@@ -20,8 +21,8 @@ export default function Quote() {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div
-        className={`z-10 ${isImageInView ? "animate-slideRight" : "opacity-0"}`}
-        ref={imageRef}
+        className={`z-10 ${isInView ? "animate-slideDown" : "opacity-0"}`}
+        ref={ref}
       >
         {/* add animation from left to right */}
         <Image
@@ -36,28 +37,23 @@ export default function Quote() {
       {/* Quote Text */}
       <div
         className={`px-6 max-w-3xl relative z-10 animate-slide-right ${
-          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+          isInView ? "animate-slideUp" : "opacity-0"
         }`}
-        ref={detailsRef}
+        ref={ref}
       >
         <p className={`italic text-white ${fonts.montserrat}`}>
-          Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
-          pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung
-          dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa
-          kasih dan sayang.
+          {data.quotes.quote1}
         </p>
       </div>
 
       <div
         className={` z-10 pb-5 md:pb-10 ${
-          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+          isInView ? "animate-slideUp" : "opacity-0"
         }`}
-        ref={detailsRef}
+        ref={ref}
       >
         {/* add animation from right to left */}
-        <h4 className={`${fonts.bodoni}`}>
-          QS. Ar-Rum : 21
-        </h4>
+        <h4 className={`${fonts.bodoni}`}>{data.quotes.quote1From}</h4>
       </div>
     </section>
   );

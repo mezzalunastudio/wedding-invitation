@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import ProfilPic from "../../asset/IMG_1878.jpg";
-import { fonts } from "@/app/glamour/src/fonts";
+import ProfilPic from "../../../asset/IMG_1878.jpg";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
+import { MapPin, ArrowDownToLine, TvMinimalPlay } from "lucide-react";
 
-export default function Rsvp() {
+export default function Rsvp({ data }: { data: wedding }) {
   const calculateTimeLeft = () => {
     const eventDate = new Date("2024-12-31T08:00:00Z").getTime();
     const currentDate = new Date().getTime();
@@ -70,52 +72,47 @@ export default function Rsvp() {
         </div>
       </div>
 
-      <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
+      <hr className="border-gray-300 w-1/2 mx-auto animate-fadeIn" />
       <div className={`text-center z-20`}>
-        {/* ${
-          isInView ? "animate-slideUp opacity-100" : "opacity-0"
-        } */}
-        <div className="mb-8 space-y-2">
+        <div className="mb-8 space-y-2 mx-10">
           <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Akad</p>
+          <p className={`text-base ${fonts.montserrat}`}>{data.akad.date}</p>
           <p className={`text-base ${fonts.montserrat}`}>
-            Minggu, 01 April 2024
+            Jam: {data.akad.time} WIB
           </p>
-          <p className={`text-base ${fonts.montserrat}`}>Jam: 08.00 WIB</p>
           <p className={`text-base ${fonts.montserrat}`}>
             <span className="font-bold"> Kediaman Mempelai Wanita</span>
-            <br />
-            Perumahan Graha Prima Blok IE RT
-            <br />
-            01 RW 10, Desa Satria Jaya, Tambun Utara - Bekasi
+            {data.akad.place}
           </p>
         </div>
-        {/* Button for Live Wedding */}
-        <div className="mt-4">
-          <button
-            className={`btn ${fonts.montserrat}`}
-            onClick={() =>
-              (window.location.href = "https://live-wedding-link.com")
-            }
-          >
-            Watch the Live Wedding
-          </button>
+        <div className="mt-4 flex justify-center">
+          {data && data.akad && data.akad.liveLink ? (
+            <button
+              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+              onClick={() => {
+                if (data.akad.liveLink) {
+                  window.location.href = data.akad.liveLink;
+                }
+              }}
+            >
+              <TvMinimalPlay />
+              <span>Watch the Live Wedding</span>
+            </button>
+          ) : null}
         </div>
       </div>
 
       <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
       <div className={`text-center z-20`}>
-        <div className="space-y-2">
+        <div className="mb-8 space-y-2 mx-10">
           <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Resepsi</p>
+          <p className={`text-base ${fonts.montserrat}`}>{data.resepsi.date}</p>
           <p className={`text-base ${fonts.montserrat}`}>
-            Minggu, 01 April 2024
+            Jam: {data.resepsi.time} WIB
           </p>
-          <p className={`text-base ${fonts.montserrat}`}>Jam: 08.00 WIB</p>
           <p className={`text-base ${fonts.montserrat}`}>
             <span className="font-bold"> Kediaman Mempelai Wanita</span>
-            <br />
-            Perumahan Graha Prima Blok IE RT
-            <br />
-            01 RW 10, Desa Satria Jaya, Tambun Utara - Bekasi
+            {data.resepsi.place}
           </p>
         </div>
       </div>
@@ -124,23 +121,29 @@ export default function Rsvp() {
       <div className={`flex justify-center space-x-6 z-20 px-3 pb-4 md:pb-6`}>
         {/* Google Maps Button */}
         <div>
-          <button
-            className={`btn ${fonts.montserrat}`}
-            onClick={() =>
-              window.open("https://maps.app.goo.gl/SxXsB57nspUobZdJ7", "_blank")
-            }
-          >
-            Google Maps Location
-          </button>
+          {data && data.akad && data.resepsi.mapsLink ? (
+            <button
+              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+              onClick={() => {
+                if (data.resepsi.mapsLink) {
+                  window.location.href = data.resepsi.mapsLink;
+                }
+              }}
+            >
+              <MapPin className="w-5 h-5" />
+              <span>Google Maps</span>
+            </button>
+          ) : null}
         </div>
 
         {/* Save the Date Button */}
         <div>
           <button
-            className={`btn ${fonts.montserrat}`}
+            className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
             onClick={() => alert("Saved!")}
           >
-            Save the Date
+            <ArrowDownToLine className="w-5 h-5" />
+            <span>Save the Date</span>
           </button>
         </div>
       </div>

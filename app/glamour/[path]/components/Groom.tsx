@@ -2,11 +2,12 @@ import React from "react";
 import Pict from "@/app/asset/Profile-Groom.jpg";
 import Image from "next/legacy/image";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/glamour/src/fonts";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
+import { Instagram } from "lucide-react";
 
-export default function Groom() {
-  const { ref: imageRef, isInView: isImageInView } = useInView();
-  const { ref: detailsRef, isInView: isDetailsInView } = useInView();
+export default function Groom({ data }: { data: wedding }) {
+  const { ref, isInView } = useInView();
 
   return (
     <section
@@ -23,9 +24,9 @@ export default function Groom() {
       {/* Centered Circular Image */}
       <div className="flex items-center justify-center z-10">
         <div
-          ref={imageRef}
+          ref={ref}
           className={`w-40 h-40 rounded-full overflow-hidden transition-transform duration-700 ${
-            isImageInView ? "animate-slideRight" : "opacity-0"
+            isInView ? "animate-slideUp" : "opacity-0"
           }`}
         >
           {/* animate rightleft */}
@@ -40,35 +41,48 @@ export default function Groom() {
       </div>
 
       <div
-        ref={detailsRef}
+        ref={ref}
         className={`relative w-2/3 sm:w-1/3 p-6 text-center transition-transform duration-700 ${
-          isDetailsInView ? "animate-slideLeft" : "opacity-0"
+          isInView ? "animate-slideDown" : "opacity-0"
         }`}
       >
         {/* animate letftright */}
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
         {/* Content */}
         <div className="relative z-10 space-y-4 text-white">
-          <h2 className={`text-2xl font-bold ${fonts.bodoni}`}>Nabil</h2>
+          <h2 className={`text-2xl font-bold ${fonts.bodoni}`}>
+            {data.groom.shortName}
+          </h2>
           <p className={`text-lg font-medium ${fonts.montserrat}`}>
-            Ngakan Made Nabil Akmal, S.T., MBA
+            {data.groom.fullNameWithTitle}
           </p>
 
           <div className={`text-sm mt-4 space-y-1 ${fonts.montserrat}`}>
             <p>
-              <span className="font-semibold">Anak ke:</span> Putra pertama dari
+              <span className="font-semibold">Anak ke:</span>{" "}
+              {data.groom.orderInFamily}
             </p>
             <p>
-              <span className="font-semibold">Orang tua:</span> Bpk. Nabil & Ibu
-              Nabil
+              <span className="font-semibold">Orang tua:</span> Bpk.{" "}
+              {data.groom.fatherName} & Ibu
+              {data.groom.motherName}
             </p>
           </div>
 
-          <button className={`btn ${fonts.bodoni}`}>
-            <a href="https://instagram.com" target="_blank">
-              @nabil
-            </a>
-          </button>
+          <div className="flex justify-center mt-4">
+            <button
+              className={`btn flex items-center space-x-2 ${fonts.bodoni}`}
+            >
+              <a
+                href={data.bride.instagram}
+                target="_blank"
+                className="flex items-center space-x-2"
+              >
+                <Instagram className="w-5 h-5" />
+                <span>@{data.groom.shortName}</span>
+              </a>
+            </button>
+          </div>
         </div>
       </div>
     </section>

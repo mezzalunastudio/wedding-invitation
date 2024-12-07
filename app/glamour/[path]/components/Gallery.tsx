@@ -5,7 +5,8 @@ import img2 from "@/app/asset/IMG_1878.jpg";
 import img3 from "@/app/asset/IMG_1885.jpg";
 import img4 from "@/app/asset/IMG_1890.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/glamour/src/fonts";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
 
 interface imageData {
   src: string | StaticImageData;
@@ -19,14 +20,17 @@ const images: imageData[] = [
   { src: img4, alt: "Gallery Image 4" },
 ];
 
-export default function Gallery() {
-  const { ref: imageRef, isInView: isImageInView } = useInView();
-  const { ref: videoRef, isInView: isvideoRef } = useInView();
+export default function Gallery({ data }: { data: wedding }) {
+  const { ref, isInView } = useInView();
+  console.log(data.groom.shortName);
 
   return (
     <section className="py-12 bg-stone-500" id="gallery">
       <h1
-        className={`text-center text-white md:mb-8 mb-4 ${fonts.bodoni}`}
+        ref={ref}
+        className={`text-center text-white md:mb-8 mb-4 ${fonts.bodoni} ${
+          isInView ? "animate-slideDown" : "opacity-0"
+        }`}
       >
         Gallery
       </h1>
@@ -34,9 +38,9 @@ export default function Gallery() {
       <div className="max-w-6xl mx-auto space-y-12 px-4">
         <div
           className={`flex space-x-4 pb-4 overflow-x-auto snap-x scrollbar-hidden sm:scrollbar-auto ${
-            isImageInView ? "animate-slideRight" : "opacity-0"
+            isInView ? "animate-slideUp" : "opacity-0"
           }`}
-          ref={imageRef}
+          ref={ref}
         >
           {images.map((image, index) => (
             <div
@@ -59,9 +63,9 @@ export default function Gallery() {
 
         <div
           className={`flex justify-center ${
-            isvideoRef ? "animate-slideLeft" : "opacity-0"
+            isInView ? "animate-slideDown" : "opacity-0"
           }`}
-          ref={videoRef}
+          ref={ref}
         >
           <iframe
             width="100%"

@@ -10,7 +10,7 @@ export const useInView = () => {
       ([entry]) => {
         setIsInView(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.2 }
     );
 
     if (ref.current) {

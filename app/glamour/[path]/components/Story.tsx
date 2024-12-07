@@ -1,11 +1,11 @@
 import React from "react";
 import Pict from "@/app/asset/IMG_1885.jpg";
 import { useInView } from "@/app/hooks/useInView";
-import { fonts } from "@/app/glamour/src/fonts";
+import { fonts } from "../src/fonts";
+import { wedding } from "@/app/utils/types";
 
-export default function Story() {
-  const { ref: headingRef, isInView: isheadingRef } = useInView();
-  const { ref: storyRef, isInView: isstoryRef } = useInView();
+export default function Story({ data }: { data: wedding }) {
+  const { ref, isInView } = useInView();
 
   return (
     <section
@@ -19,9 +19,9 @@ export default function Story() {
 
       <div
         className={`text-center mt-12 z-10 ${
-          isheadingRef ? "animate-slideLeft" : "opacity-0"
+          isInView ? "animate-slideUp" : "opacity-0"
         }`}
-        ref={headingRef}
+        ref={ref}
       >
         <h1 className={`capitalize text-white ${fonts.bodoni}`}>
           Our Love Story
@@ -31,9 +31,9 @@ export default function Story() {
       {/* Timeline Wrapper */}
       <div
         className={`relative max-w-6xl mx-auto px-4 space-y-4 z-10 my-12 ${
-          isstoryRef ? "animate-slideRight" : "opacity-0"
+          isInView ? "animate-slideDown" : "opacity-0"
         }`}
-        ref={storyRef}
+        ref={ref}
       >
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-white"></div>
 
@@ -47,9 +47,7 @@ export default function Story() {
                 <p
                   className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
                 >
-                  We met for the first time at a mutual friend’s gathering,
-                  where we immediately connected over our shared interests and
-                  love for adventure.
+                  {data.loveStory.firstMeet}
                 </p>
               </div>
             </div>
@@ -63,9 +61,7 @@ export default function Story() {
                 <p
                   className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
                 >
-                  On a beautiful evening, under a sky full of stars, the
-                  proposal took place with heartfelt words, promising a lifetime
-                  of love and happiness together.
+                  {data.loveStory.theProposal}
                 </p>
               </div>
             </div>
@@ -79,9 +75,7 @@ export default function Story() {
                 <p
                   className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
                 >
-                  Our journey led to a beautiful wedding day, surrounded by
-                  family and friends, celebrating the beginning of a new chapter
-                  in our love story.
+                  {data.loveStory.marriage}
                 </p>
               </div>
             </div>
