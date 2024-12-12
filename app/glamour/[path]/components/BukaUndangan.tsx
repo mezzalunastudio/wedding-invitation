@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Pict from "@/app/asset/IMG_1885.jpg";
 import { useInView } from "@/app/hooks/useInView";
 import { fonts } from "../src/fonts";
@@ -15,11 +15,33 @@ export default function BukaUndangan({
 }) {
   const { ref, isInView } = useInView();
   const [isHovered, setIsHovered] = useState(false);
+  const [backgroundImage, setBackgroundImage] = useState("");
+
+  useEffect(() => {
+    // Replace with your actual API URL
+    const fetchImage = async () => {
+      try {
+        const response = await fetch(
+          "https://4013-36-73-144-156.ngrok-free.app/images/img_1921.png"
+        );
+        if (response.ok) {
+          setBackgroundImage(response.url);
+        } else {
+          console.error("Failed to fetch image:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    fetchImage();
+  }, []);
 
   return (
     <section
       className={`relative h-screen text-center bg-slate-950`}
       style={{
+        // backgroundImage: `url(${backgroundImage})`,
         backgroundImage: `url(${Pict.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -36,7 +58,7 @@ export default function BukaUndangan({
           <p
             ref={ref}
             className={`text-xl text-white ${fonts.montserrat} ${
-              isInView ? "animate-slideUp" : "opacity-0"
+              isInView ? "animate-fadeIn" : "opacity-0"
             }`}
           >
             The wedding of

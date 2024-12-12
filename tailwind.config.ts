@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        fadeIn: "fadeIn 0.6s ease-in-out",
-        slideUp: "slideUp 0.6s ease-in-out",
-        slideDown: "slideDown 0.6s ease-in-out",
-        slideLeft: "slideLeft 0.6s ease-in-out",
-        slideRight: "slideRight 0.6s ease-in-out",
+        fadeIn: "fadeIn 2s ease-in-out",
+        slideUp: "slideUp 1s ease-in-out",
+        slideDown: "slideDown 1s ease-in-out",
+        slideLeft: "slideLeft 1s ease-in-out",
+        slideRight: "slideRight 1s ease-in-out",
       },
       keyframes: {
         fadeIn: {
@@ -27,7 +27,7 @@ const config: Config = {
         slideUp: {
           "0%": {
             opacity: "0",
-            transform: "translateY(20px)",
+            transform: "translateY(40px)",
           },
           "100%": {
             opacity: "1",
@@ -37,7 +37,7 @@ const config: Config = {
         slideDown: {
           "0%": {
             opacity: "0",
-            transform: "translateY(-20px)",
+            transform: "translateY(-40px)",
           },
           "100%": {
             opacity: "1",
@@ -47,7 +47,7 @@ const config: Config = {
         slideLeft: {
           "0%": {
             opacity: "0",
-            transform: "translateX(20px)",
+            transform: "translateX(40px)",
           },
           "100%": {
             opacity: "1",
@@ -57,7 +57,7 @@ const config: Config = {
         slideRight: {
           "0%": {
             opacity: "0",
-            transform: "translateX(-20px)",
+            transform: "translateX(-40px)",
           },
           "100%": {
             opacity: "1",

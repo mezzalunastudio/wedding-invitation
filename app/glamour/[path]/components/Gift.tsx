@@ -69,9 +69,9 @@ export default function Gift({ data }: { data: wedding }) {
               <p className="text-xl">{data.groom.noRek}</p>
             </div>
 
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col items-center">
               <p className={`text-base mb-3 ${fonts.bodoni}`}>
-                {data.bride.bank}
+                {data.bride.bank} BCA
               </p>
               <button
                 className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
@@ -97,9 +97,9 @@ export default function Gift({ data }: { data: wedding }) {
               <p className="text-xl">{data.bride.noRek}</p>
             </div>
 
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col items-center">
               <p className={`text-base mb-3 ${fonts.bodoni}`}>
-                {data.bride.bank}
+                {data.bride.bank} BCA
               </p>
               <button
                 className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
