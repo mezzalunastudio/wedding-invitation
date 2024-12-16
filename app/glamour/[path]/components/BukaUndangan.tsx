@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Pict from "@/app/asset/IMG_1885.jpg";
 import { useInView } from "@/app/hooks/useInView";
 import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
 import { Mail, MailOpen } from "lucide-react";
+import { getWeddingImage } from "@/app/utils/apihelper";
 
 export default function BukaUndangan({
   data,
@@ -15,34 +15,34 @@ export default function BukaUndangan({
 }) {
   const { ref, isInView } = useInView();
   const [isHovered, setIsHovered] = useState(false);
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [image, setImage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Replace with your actual API URL
     const fetchImage = async () => {
-      try {
-        const response = await fetch(
-          "https://4013-36-73-144-156.ngrok-free.app/images/img_1921.png"
-        );
-        if (response.ok) {
-          setBackgroundImage(response.url);
-        } else {
-          console.error("Failed to fetch image:", response.statusText);
+      if (data) {
+        try {
+          const imageUrl = await getWeddingImage(
+            data.category,
+            data.path,
+            data.imageUrl.groomImg
+          );
+          setImage(imageUrl);
+        } catch (error) {
+          console.error("Error fetching image:", error);
+          setImage(null);
         }
-      } catch (error) {
-        console.error("Error fetching image:", error);
       }
     };
 
     fetchImage();
-  }, []);
+  }, [data]);
 
   return (
     <section
       className={`relative h-screen text-center bg-slate-950`}
       style={{
         // backgroundImage: `url(${backgroundImage})`,
-        backgroundImage: `url(${Pict.src})`,
+        backgroundImage: image ? `url('${image}')` : "none", // Wrap the image in url()
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

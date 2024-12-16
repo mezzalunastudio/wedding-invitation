@@ -12,7 +12,8 @@ import Gallery from "./components/Gallery";
 import Story from "./components/Story";
 import Gift from "./components/Gift";
 import Footer from "./components/Footer";
-import { getWeddingContent } from "@/app/utils/datahelper";
+import NotFound from "@/app/not-found";
+import { getWeddingContent } from "@/app/utils/apihelper";
 import { emptyWeddingContent } from "@/app/utils/emptyWeddingContent";
 import BukaUndangan from "./components/BukaUndangan";
 
@@ -21,13 +22,14 @@ export default function Glamour({
 }: {
   params: Promise<{ path: string }>;
 }) {
+  const category = "glamour";
   const params = use(paramsPromise);
   const { path } = params;
-
   const [weddingContent, setWeddingContent] = useState(emptyWeddingContent);
   const [showButton, setShowButton] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
   const headerRef = useRef<HTMLDivElement | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const handleUnlock = () => {
     setIsUnlocked(true);
@@ -36,11 +38,14 @@ export default function Glamour({
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const data = await getWeddingContent(path);
+        const data = await getWeddingContent(category, path);
         setWeddingContent(data);
       } catch (error) {
-        console.error("Error fetching wedding content:", error);
+        console.log(error);
+      } finally {
+        setLoading(false); // End loading
       }
     };
 
@@ -63,6 +68,23 @@ export default function Glamour({
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  //prevent error if fetch data not found
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p>Loading...</p> {/* Show a loading indicator */}
+      </div>
+    );
+  }
+
+  //change later create 404 pages
+  if (!weddingContent) {
+    return (
+      <>
+        <NotFound />
+      </>
+    ); 
 
   return (
     <div

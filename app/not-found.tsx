@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-const Custom404: React.FC = () => {
+const NotFound: React.FC = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -13,4 +13,4 @@ const Custom404: React.FC = () => {
   return null; // Optional: Can show a loading spinner here
 };
 
-export default Custom404;
+export default NotFound;
