@@ -52,6 +52,7 @@ export const emptyWeddingContent: wedding = {
     theProposal: "",
     marriage: "",
   },
+  rsvp:[],
   imageUrl: {
     groomImg: "",
     brideImg: "",

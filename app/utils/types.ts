@@ -45,6 +45,12 @@ export interface wedding {
     theProposal?: string;
     marriage?: string;
   };
+  rsvp: Array<{
+    sender: string;
+    message: string;
+    attendance: string;
+    createdDate: Date;
+  }>;
   imageUrl: {
     groomImg?: string;
     brideImg?: string;

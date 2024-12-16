@@ -84,7 +84,8 @@ export default function Glamour({
       <>
         <NotFound />
       </>
-    ); 
+    );
+  } 
 
   return (
     <div

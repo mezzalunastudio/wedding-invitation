@@ -6,54 +6,48 @@ import { wedding } from "@/app/utils/types";
 import { CalendarDays } from "lucide-react";
 import Pict from "@/app/asset/IMG_1859.jpg";
 
-interface INewGreeting {
-  name: string;
-  message: string;
-  attendance: string;
-  time: string;
-}
-
 export default function RSVP({ data }: { data: wedding }) {
+  const rsvpList = data.rsvp || [];
   const [name, setName] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [attendance, setAttendance] = useState<string>("present");
-  // const [greetings, setGreetings] = useState<INewGreeting[]>([]);
   const { ref, isInView } = useInView();
 
-  const [greetings, setGreetings] = useState<INewGreeting[]>([
-    {
-      name: "Andi",
-      message: "Selamat atas pernikahannya, semoga bahagia selalu!",
-      attendance: "hadir",
-      time: "2024-12-12 10:00",
-    },
-    {
-      name: "Budi",
-      message: "Mohon maaf tidak bisa hadir, semoga acaranya lancar.",
-      attendance: "tidak hadir",
-      time: "2024-12-11 18:30",
-    },
-    {
-      name: "Citra",
-      message: "Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah.",
-      attendance: "ragu-ragu",
-      time: "2024-12-10 15:20",
-    },
-  ]);
+  // const [greetings, setGreetings] = useState<INewGreeting[]>([
+  //   {
+  //     name: "Andi",
+  //     message: "Selamat atas pernikahannya, semoga bahagia selalu!",
+  //     attendance: "hadir",
+  //     time: "2024-12-12 10:00",
+  //   },
+  //   {
+  //     name: "Budi",
+  //     message: "Mohon maaf tidak bisa hadir, semoga acaranya lancar.",
+  //     attendance: "tidak hadir",
+  //     time: "2024-12-11 18:30",
+  //   },
+  //   {
+  //     name: "Citra",
+  //     message: "Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah.",
+  //     attendance: "ragu-ragu",
+  //     time: "2024-12-10 15:20",
+  //   },
+  // ]);
 
-  const handleGreetingSubmit = (): void => {
-    const newGreeting: INewGreeting = {
-      name,
-      message,
-      attendance,
-      time: new Date().toLocaleString(),
-    };
-    setGreetings([newGreeting, ...greetings]);
-    setName("");
-    setMessage("");
-    setAttendance("present");
-  };
-  console.log(data.bride.shortName);
+  // const handleGreetingSubmit = (): void => {
+  //   const newGreeting: INewGreeting = {
+  //     name,
+  //     message,
+  //     attendance,
+  //     time: new Date().toLocaleString(),
+  //   };
+  //   setGreetings([newGreeting, ...greetings]);
+  //   setName("");
+  //   setMessage("");
+  //   setAttendance("present");
+  // };
+
+  console.log("rsvp " + data.rsvp[0]);
 
   return (
     <section
@@ -124,28 +118,37 @@ export default function RSVP({ data }: { data: wedding }) {
           </div>
 
           <div className="flex justify-start text-center mt-4">
-            <button
-              onClick={handleGreetingSubmit}
-              className="rounded-full bg-gray-400 px-4 py-2 flex items-center justify-center space-x-2"
-            >
+            <button className="rounded-full bg-gray-400 px-4 py-2 flex items-center justify-center space-x-2">
               <span>Berikan Ucapan</span>
             </button>
           </div>
         </div>
         {/* Display Greetings */}
         <div className="space-y-4 mt-8 sm:w-1/2 w-3/4 mx-auto text-white z-30">
-          {greetings.length > 0 ? (
-            greetings.map((greeting, index) => (
+          {rsvpList.length > 0 ? (
+            rsvpList.map((greeting, index) => (
               <div
                 key={index}
                 className={`p-4 bg-transparent space-y-2 capitalize border-b-2 border-gray-200/10 ${fonts.montserrat}`}
               >
-                <p>{greeting.name}</p>
+                <p>{greeting.sender}</p>
                 <p>{greeting.message}</p>
-                <p>{greeting.attendance}</p>
-                <p className="flex justify-start space-x-2">
+                {/* change to badge later */}
+                <p
+                  className={`text-sm ${
+                    greeting.attendance === "attending"
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {greeting.attendance}
+                </p>
+                <p className="flex items-center space-x-2 text-gray-400">
                   <CalendarDays />
-                  <span>{greeting.time}</span>
+                  <span>
+                    {/* format this date later */}
+                    {greeting.createdDate.toString()}
+                  </span>
                 </p>
               </div>
             ))

@@ -17,6 +17,20 @@ export default function BukaUndangan({
   const [isHovered, setIsHovered] = useState(false);
   const [image, setImage] = useState<string | null>(null);
 
+  const handleFullScreen = () => {
+    const element = document.documentElement; // Target the entire document
+    if (element.requestFullscreen) {
+      element.requestFullscreen(); // Trigger fullscreen mode
+      // } else if (element.webkitRequestFullscreen) {
+      //   element.webkitRequestFullscreen(); // Support for Safari
+      // } else if (element.msRequestFullscreen) {
+      //   element.msRequestFullscreen(); // Support for IE/Edge
+      // }
+    }
+
+    onUnlock(); // Call the provided unlock function
+  };
+
   useEffect(() => {
     const fetchImage = async () => {
       if (data) {
@@ -100,7 +114,7 @@ export default function BukaUndangan({
           >
             <button
               className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition flex items-center justify-center gap-2"
-              onClick={onUnlock}
+              onClick={handleFullScreen}
               onMouseEnter={() => setIsHovered(true)} // Set hover state to true
               onMouseLeave={() => setIsHovered(false)} // Reset hover state
             >
