@@ -1,9 +1,16 @@
-import React from "react";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-      <h1>redirect to landing page</h1>
-    </div>
-  );
-}
+const Glamour: React.FC = () => {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to the home page
+    router.replace("/");
+  }, [router]);
+
+  return null; // Optional: Can show a loading spinner here
+};
+
+export default Glamour;

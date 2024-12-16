@@ -1,150 +1,164 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import ProfilPic from "../../../asset/IMG_1878.jpg";
+import React, { useState } from "react";
+import { useInView } from "@/app/hooks/useInView";
 import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
-import { MapPin, ArrowDownToLine, TvMinimalPlay } from "lucide-react";
+import { CalendarDays } from "lucide-react";
+import Pict from "@/app/asset/IMG_1859.jpg";
 
-export default function Rsvp({ data }: { data: wedding }) {
-  const calculateTimeLeft = () => {
-    const eventDate = new Date("2024-12-31T08:00:00Z").getTime();
-    const currentDate = new Date().getTime();
-    const timeLeft = eventDate - currentDate;
+interface INewGreeting {
+  name: string;
+  message: string;
+  attendance: string;
+  time: string;
+}
 
-    return {
-      days: Math.floor(timeLeft / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      minutes: Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)),
+export default function RSVP({ data }: { data: wedding }) {
+  const [name, setName] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [attendance, setAttendance] = useState<string>("present");
+  // const [greetings, setGreetings] = useState<INewGreeting[]>([]);
+  const { ref, isInView } = useInView();
+
+  const [greetings, setGreetings] = useState<INewGreeting[]>([
+    {
+      name: "Andi",
+      message: "Selamat atas pernikahannya, semoga bahagia selalu!",
+      attendance: "hadir",
+      time: "2024-12-12 10:00",
+    },
+    {
+      name: "Budi",
+      message: "Mohon maaf tidak bisa hadir, semoga acaranya lancar.",
+      attendance: "tidak hadir",
+      time: "2024-12-11 18:30",
+    },
+    {
+      name: "Citra",
+      message: "Semoga menjadi keluarga yang sakinah, mawaddah, wa rahmah.",
+      attendance: "ragu-ragu",
+      time: "2024-12-10 15:20",
+    },
+  ]);
+
+  const handleGreetingSubmit = (): void => {
+    const newGreeting: INewGreeting = {
+      name,
+      message,
+      attendance,
+      time: new Date().toLocaleString(),
     };
+    setGreetings([newGreeting, ...greetings]);
+    setName("");
+    setMessage("");
+    setAttendance("present");
   };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  console.log(data.bride.shortName);
 
   return (
     <section
-      className="flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
+      className={`p-6 space-y-4 bg-gray-500 min-h-screen flex flex-col justify-center`}
+      id="event"
       style={{
-        backgroundImage: `url(${ProfilPic.src})`,
+        backgroundImage: `url(${Pict.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      id="rsvp"
     >
-      <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
 
-      <div className={`text-center z-10`}>
-        <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
-        <Image
-          src={ProfilPic}
-          alt="Wedding"
-          width={400}
-          height={300}
-          className={`mx-auto`}
-        />
-        {/* Countdown Timer */}
-        <div className={`mt-6 text-xl font-semibold `}>
-          <p className={`text-lg ${fonts.bodoni}`}>Wedding Countdown</p>
-          <div
-            className={`flex justify-center space-x-4 mt-4 ${fonts.montserrat}`}
-          >
-            <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.days}</span>
-              <span className="text-sm">Days</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.hours}</span>
-              <span className="text-sm">Hours</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.minutes}</span>
-              <span className="text-sm">Minutes</span>
-            </div>
+      {/* Parent div of the greeting form */}
+      <div className=" h-full mx-auto w-4/5 md:w-4/5 lg:w-3/4 z-20 bg-gray-500 bg-opacity-70 rounded-lg p-6">
+        {/* Greeting Form */}
+        <div
+          className={`text-center space-y-6 my-4 md:my-6 z-50 ${
+            isInView ? "animate-slideUp" : "opacity-0"
+          }`}
+          ref={ref}
+        >
+          <h1 className={`${fonts.bodoni}`}>RSVP & Ucapan</h1>
+          <p className={`capitalize  ${fonts.montserrat}`}>
+            Diharapkan kepada tamu undangan untuk mengisi form kehadiran dibawah
+            ini
+          </p>
+        </div>
+        <div
+          className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-white z-50 ${
+            fonts.montserrat
+          } ${isInView ? "animate-slideDown" : "opacity-0"}`}
+          ref={ref}
+        >
+          <div>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Nama"
+              className="border-b-2 border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
+            />
+          </div>
+
+          <div>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Berikan Ucapkan"
+              className="border-b-2 border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
+              rows={5}
+            />
+          </div>
+
+          <div>
+            <label className="block text-white mb-1">
+              Konfirmasi Kehadiran
+            </label>
+            <select
+              value={attendance}
+              onChange={(e) => setAttendance(e.target.value)}
+              className="border-b-2 border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
+            >
+              <option value="present">Hadir</option>
+              <option value="not present">Tidak Hadir</option>
+              <option value="hesitant">Ragu-Ragu</option>
+            </select>
+          </div>
+
+          <div className="flex justify-start text-center mt-4">
+            <button
+              onClick={handleGreetingSubmit}
+              className="rounded-full bg-gray-400 px-4 py-2 flex items-center justify-center space-x-2"
+            >
+              <span>Berikan Ucapan</span>
+            </button>
           </div>
         </div>
-      </div>
-
-      <hr className="border-gray-300 w-1/2 mx-auto animate-fadeIn" />
-      <div className={`text-center z-20`}>
-        <div className="mb-8 space-y-2 mx-10">
-          <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Akad</p>
-          <p className={`text-base ${fonts.montserrat}`}>{data.akad.date}</p>
-          <p className={`text-base ${fonts.montserrat}`}>
-            Jam: {data.akad.time} WIB
-          </p>
-          <p className={`text-base ${fonts.montserrat}`}>
-            <span className="font-bold"> Kediaman Mempelai Wanita</span>
-            {data.akad.place}
-          </p>
-        </div>
-        <div className="mt-4 flex justify-center">
-          {data && data.akad && data.akad.liveLink ? (
-            <button
-              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
-              onClick={() => {
-                if (data.akad.liveLink) {
-                  window.location.href = data.akad.liveLink;
-                }
-              }}
+        {/* Display Greetings */}
+        <div className="space-y-4 mt-8 sm:w-1/2 w-3/4 mx-auto text-white z-30">
+          {greetings.length > 0 ? (
+            greetings.map((greeting, index) => (
+              <div
+                key={index}
+                className={`p-4 bg-transparent space-y-2 capitalize border-b-2 border-gray-200/10 ${fonts.montserrat}`}
+              >
+                <p>{greeting.name}</p>
+                <p>{greeting.message}</p>
+                <p>{greeting.attendance}</p>
+                <p className="flex justify-start space-x-2">
+                  <CalendarDays />
+                  <span>{greeting.time}</span>
+                </p>
+              </div>
+            ))
+          ) : (
+            <p
+              ref={ref}
+              className={`text-center text-black ${
+                isInView ? "animate-fadeIn" : "opacity-0"
+              }`}
             >
-              <TvMinimalPlay />
-              <span>Watch the Live Wedding</span>
-            </button>
-          ) : null}
-        </div>
-      </div>
-
-      <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
-      <div className={`text-center z-20`}>
-        <div className="mb-8 space-y-2 mx-10">
-          <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Resepsi</p>
-          <p className={`text-base ${fonts.montserrat}`}>{data.resepsi.date}</p>
-          <p className={`text-base ${fonts.montserrat}`}>
-            Jam: {data.resepsi.time} WIB
-          </p>
-          <p className={`text-base ${fonts.montserrat}`}>
-            <span className="font-bold"> Kediaman Mempelai Wanita</span>
-            {data.resepsi.place}
-          </p>
-        </div>
-      </div>
-      <hr className="md:my-4 my-2 border-gray-300 w-1/2 mx-auto animate-fadeIn" />
-
-      <div className={`flex justify-center space-x-6 z-20 px-3 pb-4 md:pb-6`}>
-        {/* Google Maps Button */}
-        <div>
-          {data && data.akad && data.resepsi.mapsLink ? (
-            <button
-              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
-              onClick={() => {
-                if (data.resepsi.mapsLink) {
-                  window.location.href = data.resepsi.mapsLink;
-                }
-              }}
-            >
-              <MapPin className="w-5 h-5" />
-              <span>Google Maps</span>
-            </button>
-          ) : null}
-        </div>
-
-        {/* Save the Date Button */}
-        <div>
-          <button
-            className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
-            onClick={() => alert("Saved!")}
-          >
-            <ArrowDownToLine className="w-5 h-5" />
-            <span>Save the Date</span>
-          </button>
+              Belum ada yang mengirim pesan!
+            </p>
+          )}
         </div>
       </div>
     </section>
