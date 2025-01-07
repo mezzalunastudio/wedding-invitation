@@ -22,7 +22,7 @@ export default function Groom({ data }: { data: wedding }) {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       {/* Centered Circular Image */}
-      <div className="flex items-center justify-center z-10">
+      <div className="flex items-center justify-center z-20">
         <div
           ref={ref}
           className={`w-40 h-40 rounded-full overflow-hidden transition-transform duration-700 ${
@@ -42,7 +42,7 @@ export default function Groom({ data }: { data: wedding }) {
 
       <div
         ref={ref}
-        className={`relative w-2/3 sm:w-1/3 p-6 text-center transition-transform duration-700 ${
+        className={`z-20 relative w-2/3 sm:w-1/3 p-6 text-center transition-transform duration-700 ${
           isInView ? "animate-slideDown" : "opacity-0"
         }`}
       >

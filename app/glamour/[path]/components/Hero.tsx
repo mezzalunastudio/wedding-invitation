@@ -21,7 +21,7 @@ export default function Hero({ data }: { data: wedding }) {
 
       {/* First div: vertical alignment */}
       <div
-        className={`flex flex-col items-center -rotate-90 border-white border-t-2 z-10 -ml-20 ${
+        className={`flex flex-col items-center -rotate-90 border-white border-t-2 z-20 -ml-20 ${
           isInView ? "animate-fadeIn" : "opacity-0"
         }`}
         ref={ref}
@@ -36,7 +36,7 @@ export default function Hero({ data }: { data: wedding }) {
 
       {/* Second div: horizontal alignment */}
       <div
-        className={`z-10 border-y-2 border-l-2 border-white -ml-20 transition-transform duration-700 ${
+        className={`z-20 border-y-2 border-l-2 border-white -ml-20 transition-transform duration-700 ${
           fonts.bodoni
         } ${isInView ? "animate-slideRight" : "opacity-0"}`}
         ref={ref}

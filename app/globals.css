@@ -21,6 +21,26 @@ body {
 }
 
 @layer base {
+  @font-face {
+    font-family: "bickham";
+    font-style: regular;
+    font-weight: 400;
+    src: url("/fonts/bickham.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "voyage";
+    font-style: regular;
+    font-weight: 400;
+    src: url("/fonts/voyage-regular.woff") format(woff);
+  }
+
+  @font-face {
+    font-family: "spring";
+    font-style: regular;
+    font-weight: 400;
+    src: url("/fonts/spring.woff") format(woff);
+  }
   .btn {
     @apply text-white border border-transparent border-white transition md:py-3 py-2 md:px-4 px-2 hover:opacity-80 text-center rounded-md;
   }
@@ -42,7 +62,7 @@ h4 {
   @apply scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
-.scrollbar-hidden::-webkit-scrollbar {
+/* .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
 
@@ -50,3 +70,4 @@ h4 {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+ */

@@ -28,7 +28,7 @@ export default function Gallery({ data }: { data: wedding }) {
     <section className="py-12 bg-stone-500" id="gallery">
       <h1
         ref={ref}
-        className={`text-center text-white md:mb-8 mb-4 ${fonts.bodoni} ${
+        className={` text-center text-white md:mb-8 mb-4 ${fonts.bodoni} ${
           isInView ? "animate-slideDown" : "opacity-0"
         }`}
       >
@@ -37,7 +37,7 @@ export default function Gallery({ data }: { data: wedding }) {
 
       <div className="max-w-6xl mx-auto space-y-12 px-4">
         <div
-          className={`flex space-x-4 pb-4 overflow-x-auto snap-x scrollbar-hidden sm:scrollbar-auto ${
+          className={`flex space-x-4 pb-4 overflow-x-auto ${
             isInView ? "animate-slideUp" : "opacity-0"
           }`}
           ref={ref}

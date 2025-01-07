@@ -62,7 +62,7 @@ export default function RSVP({ data }: { data: wedding }) {
       <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
 
       {/* Parent div of the greeting form */}
-      <div className=" h-full mx-auto w-4/5 md:w-4/5 lg:w-3/4 z-20 bg-gray-500 bg-opacity-70 rounded-lg p-6">
+      <div className="h-full mx-auto w-full md:w-4/5 lg:w-3/4 z-20 bg-gray-500 bg-opacity-70 rounded-lg p-2 lgp-6">
         {/* Greeting Form */}
         <div
           className={`text-center space-y-6 my-4 md:my-6 z-50 ${
@@ -71,7 +71,7 @@ export default function RSVP({ data }: { data: wedding }) {
           ref={ref}
         >
           <h1 className={`${fonts.bodoni}`}>RSVP & Ucapan</h1>
-          <p className={`capitalize  ${fonts.montserrat}`}>
+          <p className={`capitalize text-sm lg:text-lg  ${fonts.montserrat}`}>
             Diharapkan kepada tamu undangan untuk mengisi form kehadiran dibawah
             ini
           </p>
@@ -97,7 +97,7 @@ export default function RSVP({ data }: { data: wedding }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Berikan Ucapkan"
-              className="border-b-2 border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
+              className="border-b-2 text-sm lg:text-lg border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
               rows={5}
             />
           </div>
@@ -131,18 +131,32 @@ export default function RSVP({ data }: { data: wedding }) {
                 key={index}
                 className={`p-4 bg-transparent space-y-2 capitalize border-b-2 border-gray-200/10 ${fonts.montserrat}`}
               >
-                <p>{greeting.sender}</p>
+                <div className="flex flex-row justify-start items-center space-x-4">
+                  <p>{greeting.sender}</p>
+                  {(() => {
+                    if (greeting.attendance === "Hadir") {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    } else if (greeting.attendance === "Tidak hadir") {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    } else {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    }
+                  })()}
+                </div>
                 <p>{greeting.message}</p>
-                {/* change to badge later */}
-                <p
-                  className={`text-sm ${
-                    greeting.attendance === "attending"
-                      ? "text-green-500"
-                      : "text-red-500"
-                  }`}
-                >
-                  {greeting.attendance}
-                </p>
+
                 <p className="flex items-center space-x-2 text-gray-400">
                   <CalendarDays />
                   <span>

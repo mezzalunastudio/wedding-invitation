@@ -25,7 +25,7 @@ export default function Header({ data }: { data: wedding }) {
       <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col justify-between h-full py-10 md:py-20">
+      <div className="relative z-20 flex flex-col justify-between h-full py-10 md:py-20">
         {/* Top Section */}
         <div className={`transition-transform duration-700`}>
           <p

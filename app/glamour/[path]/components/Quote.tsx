@@ -21,7 +21,7 @@ export default function Quote({ data }: { data: wedding }) {
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
       <div
-        className={`z-10 ${isInView ? "animate-slideDown" : "opacity-0"}`}
+        className={`z-20 ${isInView ? "animate-slideDown" : "opacity-0"}`}
         ref={ref}
       >
         {/* add animation from left to right */}
@@ -36,7 +36,7 @@ export default function Quote({ data }: { data: wedding }) {
 
       {/* Quote Text */}
       <div
-        className={`px-6 max-w-3xl relative z-10 animate-slide-right ${
+        className={`z-20 px-6 max-w-3xl relative z-10 animate-slide-right ${
           isInView ? "animate-slideUp" : "opacity-0"
         }`}
         ref={ref}
@@ -47,7 +47,7 @@ export default function Quote({ data }: { data: wedding }) {
       </div>
 
       <div
-        className={` z-10 pb-5 md:pb-10 ${
+        className={`z-20 pb-5 md:pb-10 ${
           isInView ? "animate-slideUp" : "opacity-0"
         }`}
         ref={ref}

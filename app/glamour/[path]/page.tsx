@@ -89,7 +89,7 @@ export default function Glamour({
 
   return (
     <div
-      className={`relative ${
+      className={`relative  ${
         isUnlocked ? "overflow-auto h-auto" : "overflow-hidden h-screen"
       }`}
     >

@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth focus:scroll-auto">
+    <html lang="en" className="!scroll-smooth focus:scroll-auto">
       <body className={`antialiased`} suppressHydrationWarning={true}>
         {children}
       </body>
