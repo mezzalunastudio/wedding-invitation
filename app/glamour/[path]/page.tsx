@@ -35,7 +35,7 @@ export default function Glamour({
     setIsUnlocked(true);
     headerRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
+ 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);

@@ -27,3 +27,16 @@ export const getWeddingImage = async (category: string, path?: string, filename?
     throw new Error("Failed to fetch wedding image.");
   }
 };
+ 
+//Send RSVP
+export const sendRsvp = async (id: string, rsvpData: any) => {
+  console.log("id"+id);
+  console.log("rsvp"+JSON.stringify(rsvpData));
+  try {
+    const response = await apiClient.post(`/content/${id}/rsvp`, rsvpData);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch wedding content.");
+  }
+};
