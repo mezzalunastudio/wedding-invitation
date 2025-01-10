@@ -9,7 +9,7 @@ export default function Story({ data }: { data: wedding }) {
 
   return (
     <section
-      className="flex flex-col justify-center items-center text-center bg-slate-950 relative bg-cover bg-center"
+      className="flex flex-col justify-center items-center text-center bg-slate-950 relative bg-cover bg-center text-white"
       style={{
         backgroundImage: `url(${Pict.src})`,
       }}
@@ -23,7 +23,9 @@ export default function Story({ data }: { data: wedding }) {
         }`}
         ref={ref}
       >
-        <h1 className={`capitalize text-white ${fonts.bodoni}`}>
+        <h1
+          className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl capitalize ${fonts.bodoni}`}
+        >
           Our Love Story
         </h1>
       </div>
@@ -43,9 +45,13 @@ export default function Story({ data }: { data: wedding }) {
           <div className="flex items-center justify-start relative">
             <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
-                <h3 className={`text-white ${fonts.bodoni}`}>First Meet</h3>
+                <h3
+                  className={`mt-8 scroll-m-20 text-2xl font-semibold tracking-tight ${fonts.bodoni}`}
+                >
+                  First Meet
+                </h3>
                 <p
-                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                  className={`text-gray-200 leading-7 [&:not(:first-child)]:mt-6 md:mx-4 ${fonts.montserrat}`}
                 >
                   {data.loveStory.firstMeet}
                 </p>
@@ -57,9 +63,13 @@ export default function Story({ data }: { data: wedding }) {
           <div className="flex items-center justify-end relative">
             <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
-                <h3 className={`text-white ${fonts.bodoni}`}>The Proposal</h3>
+                <h3
+                  className={`mt-8 scroll-m-20 text-2xl font-semibold tracking-tight ${fonts.bodoni}`}
+                >
+                  The Proposal
+                </h3>
                 <p
-                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                  className={`text-gray-200 leading-7 [&:not(:first-child)]:mt-6 md:mx-4  ${fonts.montserrat}`}
                 >
                   {data.loveStory.theProposal}
                 </p>
@@ -71,9 +81,13 @@ export default function Story({ data }: { data: wedding }) {
           <div className="flex items-center justify-start relative">
             <div className="w-4/5 md:w-1/2 px-8">
               <div className="p-2 border border-gray-300 rounded-md text-white md:space-y-4 space-y-2">
-                <h3 className={`text-white ${fonts.bodoni}`}>Marriage</h3>
+                <h3
+                  className={`mt-8 scroll-m-20 text-2xl font-semibold tracking-tight ${fonts.bodoni}`}
+                >
+                  Marriage
+                </h3>
                 <p
-                  className={`text-gray-200 text-sm md:mx-4 ${fonts.montserrat}`}
+                  className={`text-gray-200 leading-7 [&:not(:first-child)]:mt-6 md:mx-4 ${fonts.montserrat}`}
                 >
                   {data.loveStory.marriage}
                 </p>

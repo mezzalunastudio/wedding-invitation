@@ -5,6 +5,7 @@ import { useInView } from "@/app/hooks/useInView";
 import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
 import { Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Groom({ data }: { data: wedding }) {
   const { ref, isInView } = useInView();
@@ -50,19 +51,25 @@ export default function Groom({ data }: { data: wedding }) {
         <div className="absolute inset-0 bg-gray-500 opacity-70 rounded-md"></div>
         {/* Content */}
         <div className="relative z-10 space-y-4 text-white">
-          <h2 className={`text-2xl font-bold ${fonts.bodoni}`}>
+          <h2
+            className={`scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 ${fonts.bodoni}`}
+          >
+            {" "}
             {data.groom.shortName}
           </h2>
-          <p className={`text-lg font-medium ${fonts.montserrat}`}>
+          <p
+            className={`leading-7 [&:not(:first-child)]:mt-6 ${fonts.montserrat}`}
+          >
+            {" "}
             {data.groom.fullNameWithTitle}
           </p>
 
           <div className={`text-sm mt-4 space-y-1 ${fonts.montserrat}`}>
-            <p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
               <span className="font-semibold">Anak ke:</span>{" "}
               {data.groom.orderInFamily}
             </p>
-            <p>
+            <p className="leading-7 [&:not(:first-child)]:mt-6">
               <span className="font-semibold">Orang tua:</span> Bpk.{" "}
               {data.groom.fatherName} & Ibu
               {data.groom.motherName}
@@ -70,8 +77,9 @@ export default function Groom({ data }: { data: wedding }) {
           </div>
 
           <div className="flex justify-center mt-4">
-            <button
-              className={`btn flex items-center space-x-2 ${fonts.bodoni}`}
+            <Button
+              variant="outline"
+              className={` bg-transparent ${fonts.bodoni}`}
             >
               <a
                 href={data.bride.instagram}
@@ -81,7 +89,7 @@ export default function Groom({ data }: { data: wedding }) {
                 <Instagram className="w-5 h-5" />
                 <span>@{data.groom.shortName}</span>
               </a>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

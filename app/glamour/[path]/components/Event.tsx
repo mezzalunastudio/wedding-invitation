@@ -5,6 +5,7 @@ import ProfilPic from "../../../asset/IMG_1878.jpg";
 import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
 import { MapPin, ArrowDownToLine, TvMinimalPlay } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Event({ data }: { data: wedding }) {
   const calculateTimeLeft = () => {
@@ -52,21 +53,35 @@ export default function Event({ data }: { data: wedding }) {
         />
         {/* Countdown Timer */}
         <div className={`mt-6 text-xl font-semibold `}>
-          <p className={`text-lg ${fonts.bodoni}`}>Wedding Countdown</p>
+          <p className={`leading-7 [&:not(:first-child)]:mt-6 ${fonts.bodoni}`}>
+            Wedding Countdown
+          </p>
           <div
             className={`flex justify-center space-x-4 mt-4 ${fonts.montserrat}`}
           >
             <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.days}</span>
-              <span className="text-sm">Days</span>
+              <span className="text-2xl leading-7 [&:not(:first-child)]:mt-1">
+                {timeLeft.days}
+              </span>
+              <span className="text-sm leading-7 [&:not(:first-child)]:mt-1">
+                Days
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.hours}</span>
-              <span className="text-sm">Hours</span>
+              <span className="text-2xl leading-7 [&:not(:first-child)]:mt-1">
+                {timeLeft.hours}
+              </span>
+              <span className="text-sm leading-7 [&:not(:first-child)]:mt-1">
+                Hours
+              </span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-2xl">{timeLeft.minutes}</span>
-              <span className="text-sm">Minutes</span>
+              <span className="text-2xl leading-7 [&:not(:first-child)]:mt-1">
+                {timeLeft.minutes}
+              </span>
+              <span className="text-sm leading-7 [&:not(:first-child)]:mt-1">
+                Minutes
+              </span>
             </div>
           </div>
         </div>
@@ -75,20 +90,33 @@ export default function Event({ data }: { data: wedding }) {
       <hr className="border-gray-300 w-1/2 mx-auto animate-fadeIn" />
       <div className={`text-center z-20`}>
         <div className="mb-8 space-y-2 mx-10">
-          <p className={`text-2xl font-semibold ${fonts.bodoni}`}>Akad</p>
-          <p className={`text-base ${fonts.montserrat}`}>{data.akad.date}</p>
-          <p className={`text-base ${fonts.montserrat}`}>
+          <p
+            className={`scroll-m-20 text-2xl font-semibold tracking-tight ${fonts.bodoni}`}
+          >
+            Akad
+          </p>
+          <p
+            className={`text-base leading-7 [&:not(:first-child)]:mt-6 ${fonts.montserrat}`}
+          >
+            {data.akad.date}
+          </p>
+          <p
+            className={`text-base leading-7 [&:not(:first-child)]:mt-6 ${fonts.montserrat}`}
+          >
             Jam: {data.akad.time} WIB
           </p>
-          <p className={`text-base ${fonts.montserrat}`}>
+          <p
+            className={`text-base leading-7 [&:not(:first-child)]:mt-6 ${fonts.montserrat}`}
+          >
             <span className="font-bold"> Kediaman Mempelai Wanita</span>
             {data.akad.place}
           </p>
         </div>
         <div className="mt-4 flex justify-center">
           {data && data.akad && data.akad.liveLink ? (
-            <button
-              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+            <Button
+              variant="outline"
+              className={`bg-transparent ${fonts.montserrat}`}
               onClick={() => {
                 if (data.akad.liveLink) {
                   window.location.href = data.akad.liveLink;
@@ -97,7 +125,7 @@ export default function Event({ data }: { data: wedding }) {
             >
               <TvMinimalPlay />
               <span>Watch the Live Wedding</span>
-            </button>
+            </Button>
           ) : null}
         </div>
       </div>
@@ -122,8 +150,9 @@ export default function Event({ data }: { data: wedding }) {
         {/* Google Maps Button */}
         <div>
           {data && data.akad && data.resepsi.mapsLink ? (
-            <button
-              className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+            <Button
+              variant="outline"
+              className={`bg-transparent ${fonts.montserrat}`}
               onClick={() => {
                 if (data.resepsi.mapsLink) {
                   window.location.href = data.resepsi.mapsLink;
@@ -132,19 +161,20 @@ export default function Event({ data }: { data: wedding }) {
             >
               <MapPin className="w-5 h-5" />
               <span>Google Maps</span>
-            </button>
+            </Button>
           ) : null}
         </div>
 
         {/* Save the Date Button */}
         <div>
-          <button
-            className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+          <Button
+            variant="outline"
+            className={`bg-transparent ${fonts.montserrat}`}
             onClick={() => alert("Saved!")}
           >
             <ArrowDownToLine className="w-5 h-5" />
             <span>Save the Date</span>
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ import NotFound from "@/app/not-found";
 import { getWeddingContent } from "@/app/utils/apihelper";
 import { emptyWeddingContent } from "@/app/utils/emptyWeddingContent";
 import BukaUndangan from "./components/BukaUndangan";
+import { Button } from "@/components/ui/button";
 
 export default function Glamour({
   params: paramsPromise,
@@ -35,7 +36,7 @@ export default function Glamour({
     setIsUnlocked(true);
     headerRef.current?.scrollIntoView({ behavior: "smooth" });
   };
- 
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -85,7 +86,7 @@ export default function Glamour({
         <NotFound />
       </>
     );
-  } 
+  }
 
   return (
     <div
@@ -113,13 +114,14 @@ export default function Glamour({
             <Footer data={weddingContent} />
 
             {showButton && (
-              <button
+              <Button
+                variant="outline"
                 onClick={scrollToTop}
-                className="fixed bottom-4 right-4 p-3 bg-slate-700 text-white rounded-full shadow-md hover:bg-slate-800 transition"
+                className="fixed bottom-4 right-4 p-3 bg-transparent text-white rounded-full shadow-md transition z-50"
                 aria-label="Scroll to top"
               >
                 ↑
-              </button>
+              </Button>
             )}
           </>
         )}

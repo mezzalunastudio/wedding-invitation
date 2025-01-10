@@ -27,10 +27,10 @@ export default function Footer({ data }: { data: wedding }) {
         ref={ref}
       >
         {/* Third Layer: Text and Image */}
-        <p className={`text-sm mb-4 capitalize ${fonts.montserrat}`}>
+        <p className={`text-sm leading-7 [&:not(:first-child)]:mt-6 mb-4 capitalize ${fonts.montserrat}`}>
           Kedatangan dan restu kalian hadiah terindah bagi kami
         </p>
-        <h1 className={`mb-6 ${fonts.bodoni}`}>
+        <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-6 ${fonts.bodoni}`}>
           {data.groom.shortName} & {data.bride.shortName}
         </h1>
 
@@ -49,7 +49,7 @@ export default function Footer({ data }: { data: wedding }) {
         </div>
 
         {/* Footer Template Info */}
-        <span className={`text-base ${fonts.montserrat}`}>
+        <span className={`text-sm font-medium leading-none ${fonts.montserrat}`}>
           Template by Mezzaluna
         </span>
       </div>

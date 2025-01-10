@@ -1,7 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useInView } from "@/app/hooks/useInView";
+import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
+import { CalendarDays } from "lucide-react";
+import Pict from "@/app/asset/IMG_1859.jpg";
+import { Button } from "@/components/ui/button";
 import { sendRsvp } from "@/app/utils/apihelper";
 
 export default function RSVP({ data }: { data: wedding }) {
@@ -21,10 +25,8 @@ export default function RSVP({ data }: { data: wedding }) {
         message,
         attendance,
       };
-
       // Send RSVP to the API
       const updatedWedding = await sendRsvp(data._id!, newRsvp);
-
       // Update the local RSVP list and clear the form
       setRsvps(updatedWedding.rsvp);
       setName("");
@@ -41,10 +43,10 @@ export default function RSVP({ data }: { data: wedding }) {
 
   return (
     <section
-      className={`p-6 space-y-4 bg-gray-500 min-h-screen flex flex-col justify-center`}
+      className={`p-6 space-y-4 bg-gray-500 min-h-screen flex flex-col justify-center text-white`}
       id="event"
       style={{
-        backgroundImage: `url(${data.imageUrl})`,
+        backgroundImage: `url(${Pict.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -60,17 +62,22 @@ export default function RSVP({ data }: { data: wedding }) {
           }`}
           ref={ref}
         >
-          <h1 className="text-4xl font-bold text-white">RSVP & Ucapan</h1>
-          <p className="text-sm lg:text-lg text-white">
+          <h1
+            className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl${fonts.bodoni}`}
+          >
+            RSVP & Ucapan
+          </h1>
+          <p
+            className={`capitalize leading-7 [&:not(:first-child)]:mt-6  ${fonts.montserrat}`}
+          >
             Diharapkan kepada tamu undangan untuk mengisi form kehadiran dibawah
             ini
           </p>
         </div>
-
         <div
           className={`space-y-4 sm:w-1/2 w-3/4 mx-auto text-white z-50 ${
-            isInView ? "animate-slideDown" : "opacity-0"
-          }`}
+            fonts.montserrat
+          } ${isInView ? "animate-slideDown" : "opacity-0"}`}
           ref={ref}
         >
           <div>
@@ -88,7 +95,7 @@ export default function RSVP({ data }: { data: wedding }) {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Berikan Ucapkan"
-              className="border-b-2 border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
+              className="border-b-2 text-sm lg:text-lg border-gray-200/10 p-2 w-full focus:outline-none bg-transparent"
               rows={5}
             />
           </div>
@@ -109,39 +116,73 @@ export default function RSVP({ data }: { data: wedding }) {
           </div>
 
           <div className="flex justify-start text-center mt-4">
-            <button
-              className="rounded-full bg-gray-400 px-4 py-2 flex items-center justify-center space-x-2"
+            <Button
+              variant="outline"
+              className="bg-transparent"
               onClick={onSubmit}
             >
               <span>Berikan Ucapan</span>
-            </button>
+            </Button>
           </div>
-
           {error && <p className="text-red-500">{error}</p>}
         </div>
-        {/* RSVP List */}
-        <div className="mt-6">
-          <h2 className="text-lg text-white mb-4">Ucapan</h2>
-          {rsvps.map((rsvp, index) => (
-            <div
-              key={index}
-              className="text-white bg-gray-700 p-4 rounded-lg mb-2"
+        {/* Display Greetings */}
+        <div className="space-y-4 mt-8 sm:w-1/2 w-3/4 mx-auto text-white z-30">
+          {rsvpList.length > 0 ? (
+            rsvps.map((greeting, index) => (
+              <div
+                key={index}
+                className={`p-4 bg-transparent space-y-2 capitalize border-b-2 border-gray-200/10 ${fonts.montserrat}`}
+              >
+                <div className="flex flex-row justify-start items-center space-x-4">
+                  <p className="leading-7 [&:not(:first-child)]:mt-6">
+                    {greeting.sender}
+                  </p>
+                  {(() => {
+                    if (greeting.attendance === "Hadir") {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    } else if (greeting.attendance === "Tidak hadir") {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    } else {
+                      return (
+                        <span className="bg-gray-100 text-gray-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                          {greeting.attendance}
+                        </span>
+                      );
+                    }
+                  })()}
+                </div>
+                <p className="leading-7 [&:not(:first-child)]:mt-6">
+                  {greeting.message}
+                </p>
+
+                <p className="flex items-center space-x-2 text-gray-400 leading-7 [&:not(:first-child)]:mt-6">
+                  <CalendarDays />
+                  <span>
+                    {/* format this date later */}
+                    {greeting.createdDate.toString()}
+                  </span>
+                </p>
+              </div>
+            ))
+          ) : (
+            <p
+              ref={ref}
+              className={`text-center leading-7 [&:not(:first-child)]:mt-6 ${
+                isInView ? "animate-fadeIn" : "opacity-0"
+              }`}
             >
-              <p>
-                <strong>{rsvp.sender}</strong>: {rsvp.message}
-              </p>
-              <p>
-                <em>
-                  Kehadiran:{" "}
-                  {rsvp.attendance === "present"
-                    ? "Hadir"
-                    : rsvp.attendance === "not present"
-                    ? "Tidak Hadir"
-                    : "Ragu-Ragu"}
-                </em>
-              </p>
-            </div>
-          ))}
+              Belum ada yang mengirim pesan!
+            </p>
+          )}
         </div>
       </div>
     </section>

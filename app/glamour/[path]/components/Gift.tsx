@@ -5,6 +5,7 @@ import { useInView } from "@/app/hooks/useInView";
 import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
 import { CreditCard } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Gift({ data }: { data: wedding }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,7 +18,7 @@ export default function Gift({ data }: { data: wedding }) {
 
   return (
     <section
-      className=" relative flex flex-col justify-center items-center space-y-8 text-center min-h-screen"
+      className=" relative flex flex-col justify-center items-center space-y-8 text-center min-h-screen text-white"
       style={{
         backgroundImage: `url(${bgPict.src})`,
         backgroundSize: "cover",
@@ -33,8 +34,14 @@ export default function Gift({ data }: { data: wedding }) {
         }`}
         ref={ref}
       >
-        <h1 className={`capitalize mb-4 ${fonts.bodoni}`}>Wedding Love Gift</h1>
-        <p className={`text-sm md:text-lg ${fonts.montserrat}`}>
+        <h1
+          className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl capitalize mb-4 ${fonts.bodoni}`}
+        >
+          Wedding Love Gift
+        </h1>
+        <p
+          className={`leading-7 [&:not(:first-child)]:mt-6 ${fonts.montserrat}`}
+        >
           Apabila tamu ingin mengirimkan hadiah kepada kedua mempelai dapat
           melalui rekening atau virtual account dibawah ini
         </p>
@@ -46,12 +53,13 @@ export default function Gift({ data }: { data: wedding }) {
         }`}
         ref={ref}
       >
-        <button
-          className={`btn ${fonts.montserrat}`}
+        <Button
+          variant="outline"
+          className={`bg-transparent ${fonts.montserrat}`}
           onClick={() => setIsVisible(!isVisible)}
         >
           {isVisible ? "Hide Gift Info" : "Show Gift Info"}
-        </button>
+        </Button>
       </div>
 
       {isVisible && (
@@ -73,8 +81,9 @@ export default function Gift({ data }: { data: wedding }) {
               <p className={`text-base mb-3 ${fonts.bodoni}`}>
                 {data.bride.bank} BCA
               </p>
-              <button
-                className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+              <Button
+                variant="outline"
+                className={`bg-transparent ${fonts.montserrat}`}
                 onClick={() => {
                   if (data.bride.noRek) {
                     copyToClipboard(data.bride.noRek);
@@ -83,7 +92,7 @@ export default function Gift({ data }: { data: wedding }) {
               >
                 <CreditCard className="w-4 h-4" />
                 <span>Copy Rekening</span>
-              </button>
+              </Button>
             </div>
           </div>
           <div
@@ -101,8 +110,9 @@ export default function Gift({ data }: { data: wedding }) {
               <p className={`text-base mb-3 ${fonts.bodoni}`}>
                 {data.bride.bank} BCA
               </p>
-              <button
-                className={`btn flex items-center space-x-2 ${fonts.montserrat}`}
+              <Button
+                variant="outline"
+                className={`bg-transparent ${fonts.montserrat}`}
                 onClick={() => {
                   if (data.bride.noRek) {
                     copyToClipboard(data.bride.noRek);
@@ -111,7 +121,7 @@ export default function Gift({ data }: { data: wedding }) {
               >
                 <CreditCard className="w-4 h-4" />
                 <span>Copy Rekening</span>
-              </button>
+              </Button>
             </div>
           </div>
         </div>

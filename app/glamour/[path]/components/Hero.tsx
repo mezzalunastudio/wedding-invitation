@@ -9,7 +9,7 @@ export default function Hero({ data }: { data: wedding }) {
 
   return (
     <section
-      className="h-screen flex flex-row justify-center items-center center bg-slate-900 relative"
+      className="h-screen flex flex-row justify-center items-center center bg-slate-900 relative text-white"
       style={{
         backgroundImage: `url(${Pict.src})`,
         backgroundSize: "cover",
@@ -28,7 +28,7 @@ export default function Hero({ data }: { data: wedding }) {
       >
         <h4
           ref={ref}
-          className={`uppercase md:mx-5 my-2 mx-4 ${fonts.montserrat} `}
+          className={`uppercase md:mx-5 my-2 mx-4 scroll-m-20 text-xl font-semibold tracking-tight ${fonts.montserrat} `}
         >
           The Wedding Of
         </h4>
@@ -42,9 +42,17 @@ export default function Hero({ data }: { data: wedding }) {
         ref={ref}
       >
         {/* implement useInView "right to left here" */}
-        <h1 className={`text-6xl m-4`}>{data.groom.shortName}</h1>
-        <h1 className="text-4xl my-3 text-center">&</h1>
-        <h1 className="text-6xl m-4">{data.bride.shortName}</h1>
+        <h1
+          className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl m-4 text-center`}
+        >
+          {data.groom.shortName}
+        </h1>
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl my-4 text-center">
+          &
+        </h1>
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl m-4 text-center">
+          {data.bride.shortName}
+        </h1>
       </div>
     </section>
   );

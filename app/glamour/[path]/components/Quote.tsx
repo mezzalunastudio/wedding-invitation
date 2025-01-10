@@ -10,7 +10,7 @@ export default function Quote({ data }: { data: wedding }) {
 
   return (
     <section
-      className="min-h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative"
+      className="min-h-screen flex flex-col justify-center items-center space-y-8 text-center bg-slate-950 relative text-white"
       style={{
         backgroundImage: `url(${ProfilePic.src})`,
         backgroundSize: "cover",
@@ -36,12 +36,12 @@ export default function Quote({ data }: { data: wedding }) {
 
       {/* Quote Text */}
       <div
-        className={`z-20 px-6 max-w-3xl relative z-10 animate-slide-right ${
+        className={`z-20 px-6 max-w-3xl relative animate-slide-right ${
           isInView ? "animate-slideUp" : "opacity-0"
         }`}
         ref={ref}
       >
-        <p className={`italic text-white ${fonts.montserrat}`}>
+        <p className={`leading-7 [&:not(:first-child)]:mt-6 italic text-white ${fonts.montserrat}`}>
           {data.quotes.quote1}
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function Quote({ data }: { data: wedding }) {
         ref={ref}
       >
         {/* add animation from right to left */}
-        <h4 className={`${fonts.bodoni}`}>{data.quotes.quote1From}</h4>
+        <h4 className={`scroll-m-20 text-xl tracking-tight max-w-xl ${fonts.bodoni}`}>{data.quotes.quote1From}</h4>
       </div>
     </section>
   );

@@ -28,9 +28,9 @@ export default function Gallery({ data }: { data: wedding }) {
     <section className="py-12 bg-stone-500" id="gallery">
       <h1
         ref={ref}
-        className={` text-center text-white md:mb-8 mb-4 ${fonts.bodoni} ${
-          isInView ? "animate-slideDown" : "opacity-0"
-        }`}
+        className={`text-center text-white md:mb-8 mb-4 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${
+          fonts.bodoni
+        } ${isInView ? "animate-slideDown" : "opacity-0"}`}
       >
         Gallery
       </h1>

@@ -13,7 +13,7 @@ export default function Header({ data }: { data: wedding }) {
 
   return (
     <section
-      className={`relative h-screen text-center bg-slate-950`}
+      className={`relative h-screen text-center bg-slate-950 text-white`}
       style={{
         backgroundImage: `url(${Pict.src})`,
         backgroundSize: "cover",
@@ -30,14 +30,14 @@ export default function Header({ data }: { data: wedding }) {
         <div className={`transition-transform duration-700`}>
           <p
             ref={ref}
-            className={`text-xl text-white ${fonts.montserrat} ${
-              isInView ? "animate-slideUp" : "opacity-0"
-            }`}
+            className={`leading-7 [&:not(:first-child)]:mt-6 ${
+              fonts.montserrat
+            } ${isInView ? "animate-slideUp" : "opacity-0"}`}
           >
             The wedding of
           </p>
           <h1
-            className={`mt-4 text-4xl md:text-6xl text-white font-bold ${
+            className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${
               fonts.bodoni
             } ${isInView ? "animate-slideDown" : "opacity-0"}`}
             ref={ref}
@@ -51,7 +51,7 @@ export default function Header({ data }: { data: wedding }) {
           <div className={`transition-transform duration-700 `}>
             <p
               ref={ref}
-              className={`text-white text-lg ${
+              className={`leading-7 [&:not(:first-child)]:mt-6 ${
                 isInView ? "animate-slideUp" : "opacity-0"
               }`}
             >
@@ -59,7 +59,7 @@ export default function Header({ data }: { data: wedding }) {
             </p>
             <p
               ref={ref}
-              className={`text-white text-lg ${
+              className={`leading-7 [&:not(:first-child)]:mt-6 ${
                 isInView ? "animate-slideDown" : "opacity-0"
               }`}
             >
@@ -71,7 +71,7 @@ export default function Header({ data }: { data: wedding }) {
             ></div>
             <h3
               ref={ref}
-              className={`mt-4 text-2xl text-white ${fonts.cinzel} ${
+              className={`scroll-m-20 text-2xl font-semibold tracking-tight ${fonts.cinzel} ${
                 isInView ? "animate-slideUp" : "opacity-0"
               }`}
             >
@@ -79,7 +79,7 @@ export default function Header({ data }: { data: wedding }) {
             </h3>
             <p
               ref={ref}
-              className={`mt-4 text-lg text-white ${
+              className={`leading-7 [&:not(:first-child)]:mt-6 ${
                 isInView ? "animate-slideDown" : "opacity-0"
               } ${fonts.montserrat}`}
             >

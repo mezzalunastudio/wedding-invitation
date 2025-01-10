@@ -5,6 +5,7 @@ import { fonts } from "../src/fonts";
 import { wedding } from "@/app/utils/types";
 import { Mail, MailOpen } from "lucide-react";
 import { getWeddingImage } from "@/app/utils/apihelper";
+import { Button } from "@/components/ui/button";
 
 export default function BukaUndangan({
   data,
@@ -71,14 +72,14 @@ export default function BukaUndangan({
         <div className={`transition-transform duration-700`}>
           <p
             ref={ref}
-            className={`text-xl text-white ${fonts.montserrat} ${
-              isInView ? "animate-fadeIn" : "opacity-0"
-            }`}
+            className={`text-xl text-white leading-7 [&:not(:first-child)]:mt-6 ${
+              fonts.montserrat
+            } ${isInView ? "animate-fadeIn" : "opacity-0"}`}
           >
             The wedding of
           </p>
           <h1
-            className={`mt-4 text-4xl md:text-6xl text-white font-bold ${
+            className={`mt-4 md:text-6xl text-white scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${
               fonts.bodoni
             } ${isInView ? "animate-slideDown" : "opacity-0"}`}
             ref={ref}
@@ -94,7 +95,7 @@ export default function BukaUndangan({
         <div className="flex flex-col items-center justify-center transition-transform duration-700">
           <p
             ref={ref}
-            className={`text-white text-lg ${
+            className={`text-white text-lg leading-7 [&:not(:first-child)]:mt-6 ${
               isInView ? "animate-slideUp" : "opacity-0"
             }`}
           >
@@ -102,7 +103,7 @@ export default function BukaUndangan({
           </p>
           <p
             ref={ref}
-            className={`text-white text-lg ${
+            className={`text-white text-lg leading-7 [&:not(:first-child)]:mt-6 ${
               isInView ? "animate-slideDown" : "opacity-0"
             }`}
           >
@@ -112,11 +113,12 @@ export default function BukaUndangan({
             className={`mt-6 ${isInView ? "animate-slideUp" : "opacity-0"}`}
             ref={ref}
           >
-            <button
-              className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md hover:bg-gray-200 transition flex items-center justify-center gap-2"
+            <Button
+              variant="outline"
+              className={` ${fonts.bodoni}`}
               onClick={handleFullScreen}
-              onMouseEnter={() => setIsHovered(true)} // Set hover state to true
-              onMouseLeave={() => setIsHovered(false)} // Reset hover state
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               {isHovered ? (
                 <MailOpen className="w-5 h-5 text-gray-500 transition-transform duration-200" />
@@ -124,7 +126,7 @@ export default function BukaUndangan({
                 <Mail className="w-5 h-5 text-gray-500 transition-transform duration-200" />
               )}
               <span>Buka Undangan</span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>
